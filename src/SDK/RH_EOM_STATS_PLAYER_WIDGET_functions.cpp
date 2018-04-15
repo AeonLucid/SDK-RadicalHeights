@@ -1,0 +1,77 @@
+// Radical Heights (ALPHA-0-200211) SDK
+
+#ifdef _MSC_VER
+	#pragma pack(push, 0x8)
+#endif
+
+#include "RH_EOM_STATS_PLAYER_WIDGET_parameters.hpp"
+
+namespace SDK
+{
+//---------------------------------------------------------------------------
+//Functions
+//---------------------------------------------------------------------------
+
+// Function EOM_STATS_PLAYER_WIDGET.EOM_STATS_PLAYER_WIDGET_C.GetBrush_3
+// (Native, Public, BlueprintCallable)
+
+void UEOM_STATS_PLAYER_WIDGET_C::GetBrush_3()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EOM_STATS_PLAYER_WIDGET.EOM_STATS_PLAYER_WIDGET_C.GetBrush_3");
+
+	UEOM_STATS_PLAYER_WIDGET_C_GetBrush_3_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EOM_STATS_PLAYER_WIDGET.EOM_STATS_PLAYER_WIDGET_C.GetBrush_2
+// (Native, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// struct FSlateBrush             ReturnValue                    (Parm, OutParm, ReturnParm)
+
+struct FSlateBrush UEOM_STATS_PLAYER_WIDGET_C::GetBrush_2()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EOM_STATS_PLAYER_WIDGET.EOM_STATS_PLAYER_WIDGET_C.GetBrush_2");
+
+	UEOM_STATS_PLAYER_WIDGET_C_GetBrush_2_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function EOM_STATS_PLAYER_WIDGET.EOM_STATS_PLAYER_WIDGET_C.GetBrush_1
+// (Native, Public, BlueprintCallable)
+
+void UEOM_STATS_PLAYER_WIDGET_C::GetBrush_1()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EOM_STATS_PLAYER_WIDGET.EOM_STATS_PLAYER_WIDGET_C.GetBrush_1");
+
+	UEOM_STATS_PLAYER_WIDGET_C_GetBrush_1_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+}
+
+#ifdef _MSC_VER
+	#pragma pack(pop)
+#endif
