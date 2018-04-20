@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,16 @@ namespace SDK
 //---------------------------------------------------------------------------
 //Parameters
 //---------------------------------------------------------------------------
+
+// Function HUD_LMS.HUD_LMS_C.ZoneWarning_6
+struct UHUD_LMS_C_ZoneWarning_6_Params
+{
+};
+
+// Function HUD_LMS.HUD_LMS_C.ZoneWarning_31
+struct UHUD_LMS_C_ZoneWarning_31_Params
+{
+};
 
 // Function HUD_LMS.HUD_LMS_C.Set CashDropText
 struct UHUD_LMS_C_Set_CashDropText_Params
@@ -71,20 +81,14 @@ struct UHUD_LMS_C_OnBikeRaceEnd_Params
 {
 };
 
-// Function HUD_LMS.HUD_LMS_C.ExecuteUbergraph_HUD_LMS_8
-struct UHUD_LMS_C_ExecuteUbergraph_HUD_LMS_8_Params
+// Function HUD_LMS.HUD_LMS_C.ExecuteUbergraph_HUD_LMS_9
+struct UHUD_LMS_C_ExecuteUbergraph_HUD_LMS_9_Params
 {
 	int                                                bpp__EntryPoint__pf;                                      // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function HUD_LMS.HUD_LMS_C.ExecuteUbergraph_HUD_LMS_4
-struct UHUD_LMS_C_ExecuteUbergraph_HUD_LMS_4_Params
-{
-	int                                                bpp__EntryPoint__pf;                                      // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function HUD_LMS.HUD_LMS_C.ExecuteUbergraph_HUD_LMS_3
-struct UHUD_LMS_C_ExecuteUbergraph_HUD_LMS_3_Params
+// Function HUD_LMS.HUD_LMS_C.ExecuteUbergraph_HUD_LMS_6
+struct UHUD_LMS_C_ExecuteUbergraph_HUD_LMS_6_Params
 {
 	int                                                bpp__EntryPoint__pf;                                      // (Parm, ZeroConstructor, IsPlainOldData)
 };

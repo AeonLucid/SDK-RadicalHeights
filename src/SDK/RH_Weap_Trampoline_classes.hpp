@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,7 +15,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // DynamicClass Weap_Trampoline.Weap_Trampoline_C
-// 0x0000 (0x0F90 - 0x0F90)
+// 0x0000 (0x0FC0 - 0x0FC0)
 class AWeap_Trampoline_C : public AShooterWeapon
 {
 public:

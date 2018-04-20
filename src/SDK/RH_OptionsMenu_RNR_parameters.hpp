@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,14 +13,6 @@ namespace SDK
 //---------------------------------------------------------------------------
 //Parameters
 //---------------------------------------------------------------------------
-
-// Function OptionsMenu_RNR.OptionsMenu_RNR_C.SetMapAndModeNames
-struct UOptionsMenu_RNR_C_SetMapAndModeNames_Params
-{
-	struct FText                                       bpp__ModeName__pf;                                        // (ConstParm, Parm, OutParm, ReferenceParm)
-	struct FText                                       bpp__MapName__pf;                                         // (ConstParm, Parm, OutParm, ReferenceParm)
-	struct FText                                       bpp__ModeDescription__pf;                                 // (ConstParm, Parm, OutParm, ReferenceParm)
-};
 
 // Function OptionsMenu_RNR.OptionsMenu_RNR_C.ResetPauseMenu
 struct UOptionsMenu_RNR_C_ResetPauseMenu_Params

@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,11 +15,11 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass LootGroup_LootBoxSpawn.LootGroup_LootBoxSpawn_C
-// 0x0008 (0x03E8 - 0x03E0)
+// 0x0008 (0x03F0 - 0x03E8)
 class ALootGroup_LootBoxSpawn_C : public AShooterLootGroup
 {
 public:
-	class USceneComponent*                             DefaultSceneRoot;                                         // 0x03E0(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class USceneComponent*                             DefaultSceneRoot;                                         // 0x03E8(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{

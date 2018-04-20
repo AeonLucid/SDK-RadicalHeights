@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,7 +15,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // DynamicClass END_OF_MATCH_WIDGET_RNR.END_OF_MATCH_WIDGET_RNR_C
-// 0x00B0 (0x0370 - 0x02C0)
+// 0x00B8 (0x0378 - 0x02C0)
 class UEND_OF_MATCH_WIDGET_RNR_C : public UShooterEoMWidgetRNR
 {
 public:
@@ -34,8 +34,12 @@ public:
 	class UImage*                                      h_box_EOM_LightBorderB;                                   // 0x0320(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
 	class UImage*                                      Image_1;                                                  // 0x0328(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
 	class ULetterBoxWidget*                            LetterBoxWidget_1;                                        // 0x0330(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
-	struct FGeometry                                   K2Node_Event_MyGeometry;                                  // 0x0338(0x0034) (Transient, DuplicateTransient, IsPlainOldData)
-	float                                              K2Node_Event_InDeltaTime;                                 // 0x036C(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	bool                                               Temp_bool_Has_Been_Initd_Variable;                        // 0x0338(0x0001) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0339(0x0003) MISSED OFFSET
+	struct FGeometry                                   K2Node_Event_MyGeometry;                                  // 0x033C(0x0034) (Transient, DuplicateTransient, IsPlainOldData)
+	float                                              K2Node_Event_InDeltaTime;                                 // 0x0370(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	bool                                               Temp_bool_IsClosed_Variable;                              // 0x0374(0x0001) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0375(0x0003) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{

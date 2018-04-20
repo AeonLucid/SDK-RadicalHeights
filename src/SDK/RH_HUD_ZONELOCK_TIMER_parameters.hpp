@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,11 @@ namespace SDK
 //---------------------------------------------------------------------------
 //Parameters
 //---------------------------------------------------------------------------
+
+// Function HUD_ZONELOCK_TIMER.HUD_ZONELOCK_TIMER_C.ZoneTimertoSeconds
+struct UHUD_ZONELOCK_TIMER_C_ZoneTimertoSeconds_Params
+{
+};
 
 // Function HUD_ZONELOCK_TIMER.HUD_ZONELOCK_TIMER_C.OnZoneTimerWarningStop
 struct UHUD_ZONELOCK_TIMER_C_OnZoneTimerWarningStop_Params

@@ -1,4 +1,4 @@
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -825,6 +825,32 @@ float AShooterGravitySeed::GetProjectileGravityScale()
 	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterGravitySeed.GetProjectileGravityScale");
 
 	AShooterGravitySeed_GetProjectileGravityScale_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function ShooterGame.ShooterGameUtils.SpawnPhysicsPickup
+// (Final, Native, Static, Public, HasOutParms, HasDefaults, BlueprintCallable)
+// Parameters:
+// class AActor*                  SourceActor                    (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector                 InitialDirection               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+// class AActor*                  ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class AActor* UShooterGameUtils::STATIC_SpawnPhysicsPickup(class AActor* SourceActor, const struct FVector& InitialDirection)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterGameUtils.SpawnPhysicsPickup");
+
+	UShooterGameUtils_SpawnPhysicsPickup_Params params;
+	params.SourceActor = SourceActor;
+	params.InitialDirection = InitialDirection;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -1687,18 +1713,18 @@ TEnumAsByte<ECardinalDirection> UShooterGameUtils::STATIC_GetPlayerMovementCardi
 }
 
 
-// Function ShooterGame.ShooterGameUtils.GetNumLiveCharactersOnTeam
+// Function ShooterGame.ShooterGameUtils.GetNumLiveAndNotDownCharactersOnTeam
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class UWorld*                  World                          (Parm, ZeroConstructor, IsPlainOldData)
 // int                            Team                           (Parm, ZeroConstructor, IsPlainOldData)
 // int                            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 
-int UShooterGameUtils::STATIC_GetNumLiveCharactersOnTeam(class UWorld* World, int Team)
+int UShooterGameUtils::STATIC_GetNumLiveAndNotDownCharactersOnTeam(class UWorld* World, int Team)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterGameUtils.GetNumLiveCharactersOnTeam");
+	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterGameUtils.GetNumLiveAndNotDownCharactersOnTeam");
 
-	UShooterGameUtils_GetNumLiveCharactersOnTeam_Params params;
+	UShooterGameUtils_GetNumLiveAndNotDownCharactersOnTeam_Params params;
 	params.World = World;
 	params.Team = Team;
 
@@ -10409,48 +10435,6 @@ void AShooterGameState::NetMultiForceWinningTeamOnEndMatch(int ForceWinningTeam)
 }
 
 
-// Function ShooterGame.ShooterGameState.NetMulticastKickInDoor
-// (Net, NetReliable, Native, Event, NetMulticast, Public)
-// Parameters:
-// class AShooterDoor*            DoorToKick                     (Parm, ZeroConstructor, IsPlainOldData)
-
-void AShooterGameState::NetMulticastKickInDoor(class AShooterDoor* DoorToKick)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterGameState.NetMulticastKickInDoor");
-
-	AShooterGameState_NetMulticastKickInDoor_Params params;
-	params.DoorToKick = DoorToKick;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function ShooterGame.ShooterGameState.NetMulticastDestroyComponent
-// (Net, NetReliable, Native, Event, NetMulticast, Public)
-// Parameters:
-// class UActorComponent*         ToDestroy                      (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-
-void AShooterGameState::NetMulticastDestroyComponent(class UActorComponent* ToDestroy)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterGameState.NetMulticastDestroyComponent");
-
-	AShooterGameState_NetMulticastDestroyComponent_Params params;
-	params.ToDestroy = ToDestroy;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function ShooterGame.ShooterGameState.NetMulticastCharacterSpawned
 // (Net, NetReliable, Native, Event, NetMulticast, Public)
 // Parameters:
@@ -12237,27 +12221,6 @@ void AShooterCharacter::ServerRequestSpawnKickDecal(class UTexture2D* KickDecalT
 }
 
 
-// Function ShooterGame.ShooterCharacter.ServerRequestPickupAmmo
-// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
-// Parameters:
-// TArray<class AShooterPickup_Ammo*> AmmoPickups                    (ConstParm, Parm, ZeroConstructor, ReferenceParm)
-
-void AShooterCharacter::ServerRequestPickupAmmo(TArray<class AShooterPickup_Ammo*> AmmoPickups)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterCharacter.ServerRequestPickupAmmo");
-
-	AShooterCharacter_ServerRequestPickupAmmo_Params params;
-	params.AmmoPickups = AmmoPickups;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function ShooterGame.ShooterCharacter.ServerRequestKickInDoor
 // (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
 // Parameters:
@@ -12313,6 +12276,27 @@ void AShooterCharacter::ServerRequestEquipWeapon(int InventoryIndex)
 
 	AShooterCharacter_ServerRequestEquipWeapon_Params params;
 	params.InventoryIndex = InventoryIndex;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ShooterGame.ShooterCharacter.ServerRequestAutoPickup
+// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
+// Parameters:
+// TArray<class AShooterPickup*>  AmmoPickups                    (ConstParm, Parm, ZeroConstructor, ReferenceParm)
+
+void AShooterCharacter::ServerRequestAutoPickup(TArray<class AShooterPickup*> AmmoPickups)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterCharacter.ServerRequestAutoPickup");
+
+	AShooterCharacter_ServerRequestAutoPickup_Params params;
+	params.AmmoPickups = AmmoPickups;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -12394,6 +12378,52 @@ void AShooterCharacter::ServerRedirectProjectile()
 	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterCharacter.ServerRedirectProjectile");
 
 	AShooterCharacter_ServerRedirectProjectile_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ShooterGame.ShooterCharacter.ServerRecycleItemConfirmed
+// (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
+// Parameters:
+// class AShooterRecycleBin*      BinToNotify                    (Parm, ZeroConstructor, IsPlainOldData)
+// class AShooterWeapon*          RecycledItem                   (Parm, ZeroConstructor, IsPlainOldData)
+
+void AShooterCharacter::ServerRecycleItemConfirmed(class AShooterRecycleBin* BinToNotify, class AShooterWeapon* RecycledItem)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterCharacter.ServerRecycleItemConfirmed");
+
+	AShooterCharacter_ServerRecycleItemConfirmed_Params params;
+	params.BinToNotify = BinToNotify;
+	params.RecycledItem = RecycledItem;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ShooterGame.ShooterCharacter.ServerPlaySound
+// (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
+// Parameters:
+// class UAkAudioEvent*           Sound                          (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bSkipLocalCharacter            (Parm, ZeroConstructor, IsPlainOldData)
+
+void AShooterCharacter::ServerPlaySound(class UAkAudioEvent* Sound, bool bSkipLocalCharacter)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterCharacter.ServerPlaySound");
+
+	AShooterCharacter_ServerPlaySound_Params params;
+	params.Sound = Sound;
+	params.bSkipLocalCharacter = bSkipLocalCharacter;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13965,8 +13995,9 @@ void AShooterCharacter::NetMulticastRemoveCharacterScalar(const struct FName& Pa
 // class UAkAudioEvent*           Sound                          (Parm, ZeroConstructor, IsPlainOldData)
 // TEnumAsByte<EShooterDialogueCharacterFunction> InDialogue                     (Parm, ZeroConstructor, IsPlainOldData)
 // uint32_t                       RandomSeed                     (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bSkipLocalCharacter            (Parm, ZeroConstructor, IsPlainOldData)
 
-void AShooterCharacter::NetMultiCastPlaySoundInternal(class UAkAudioEvent* Sound, TEnumAsByte<EShooterDialogueCharacterFunction> InDialogue, uint32_t RandomSeed)
+void AShooterCharacter::NetMultiCastPlaySoundInternal(class UAkAudioEvent* Sound, TEnumAsByte<EShooterDialogueCharacterFunction> InDialogue, uint32_t RandomSeed, bool bSkipLocalCharacter)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterCharacter.NetMultiCastPlaySoundInternal");
 
@@ -13974,6 +14005,7 @@ void AShooterCharacter::NetMultiCastPlaySoundInternal(class UAkAudioEvent* Sound
 	params.Sound = Sound;
 	params.InDialogue = InDialogue;
 	params.RandomSeed = RandomSeed;
+	params.bSkipLocalCharacter = bSkipLocalCharacter;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -17246,6 +17278,31 @@ void AShooterCharacter::ClientSetAccelDebuffTime(float AccelDebuffTime)
 }
 
 
+// Function ShooterGame.ShooterCharacter.ClientRecycleItem
+// (Net, NetReliable, Native, Event, Public, NetClient)
+// Parameters:
+// class AShooterRecycleBin*      BinToNotify                    (Parm, ZeroConstructor, IsPlainOldData)
+// class AShooterWeapon*          ItemToRecycle                  (Parm, ZeroConstructor, IsPlainOldData)
+// int                            ExpectedAmmoInClip             (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+
+void AShooterCharacter::ClientRecycleItem(class AShooterRecycleBin* BinToNotify, class AShooterWeapon* ItemToRecycle, int ExpectedAmmoInClip)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterCharacter.ClientRecycleItem");
+
+	AShooterCharacter_ClientRecycleItem_Params params;
+	params.BinToNotify = BinToNotify;
+	params.ItemToRecycle = ItemToRecycle;
+	params.ExpectedAmmoInClip = ExpectedAmmoInClip;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function ShooterGame.ShooterCharacter.ClientPopupText
 // (Net, NetReliable, Native, Event, Public, HasDefaults, NetClient)
 // Parameters:
@@ -17411,6 +17468,24 @@ void AShooterCharacter::ClientNotifyItemWasUsed()
 	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterCharacter.ClientNotifyItemWasUsed");
 
 	AShooterCharacter_ClientNotifyItemWasUsed_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ShooterGame.ShooterCharacter.ClientInteractRequestFailed
+// (Net, NetReliable, Native, Event, Public, NetClient)
+
+void AShooterCharacter::ClientInteractRequestFailed()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterCharacter.ClientInteractRequestFailed");
+
+	AShooterCharacter_ClientInteractRequestFailed_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -18515,6 +18590,33 @@ void AShooterWeapon::ServerRotateFirePattern(bool bNewFirePatternRotated)
 }
 
 
+// Function ShooterGame.ShooterWeapon.ServerRequestSimpleHit
+// (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
+// Parameters:
+// class AActor*                  HitActor                       (Parm, ZeroConstructor, IsPlainOldData)
+// struct FName                   BoneName                       (ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+// struct FVector_NetQuantize     Location                       (ConstParm, Parm)
+// uint16_t                       ProjectileID                   (Parm, ZeroConstructor, IsPlainOldData)
+
+void AShooterWeapon::ServerRequestSimpleHit(class AActor* HitActor, const struct FName& BoneName, const struct FVector_NetQuantize& Location, uint16_t ProjectileID)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterWeapon.ServerRequestSimpleHit");
+
+	AShooterWeapon_ServerRequestSimpleHit_Params params;
+	params.HitActor = HitActor;
+	params.BoneName = BoneName;
+	params.Location = Location;
+	params.ProjectileID = ProjectileID;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function ShooterGame.ShooterWeapon.ServerRequestReload
 // (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
 // Parameters:
@@ -18775,6 +18877,29 @@ void AShooterWeapon::NetMultiCastSimulateWeaponFire(bool OnOff, unsigned char Fi
 	AShooterWeapon_NetMultiCastSimulateWeaponFire_Params params;
 	params.OnOff = OnOff;
 	params.FireModeNum = FireModeNum;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ShooterGame.ShooterWeapon.NetMulticastSimulateProjectileFire
+// (Net, NetReliable, Native, Event, NetMulticast, Public, HasDefaults)
+// Parameters:
+// struct FVector                 StartLocation                  (ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+// struct FVector                 Direction                      (ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+
+void AShooterWeapon::NetMulticastSimulateProjectileFire(const struct FVector& StartLocation, const struct FVector& Direction)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterWeapon.NetMulticastSimulateProjectileFire");
+
+	AShooterWeapon_NetMulticastSimulateProjectileFire_Params params;
+	params.StartLocation = StartLocation;
+	params.Direction = Direction;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -19509,6 +19634,27 @@ void AShooterWeapon::ClientStartReload()
 	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterWeapon.ClientStartReload");
 
 	AShooterWeapon_ClientStartReload_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ShooterGame.ShooterWeapon.ClientProjectileHitRequestFailed
+// (Net, NetReliable, Native, Event, Public, NetClient)
+// Parameters:
+// uint16_t                       ProjectileID                   (Parm, ZeroConstructor, IsPlainOldData)
+
+void AShooterWeapon::ClientProjectileHitRequestFailed(uint16_t ProjectileID)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterWeapon.ClientProjectileHitRequestFailed");
+
+	AShooterWeapon_ClientProjectileHitRequestFailed_Params params;
+	params.ProjectileID = ProjectileID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -22941,6 +23087,24 @@ void AShooterDoor::OnTweenCompleted()
 }
 
 
+// Function ShooterGame.ShooterDoor.OnRep_DoorPieces
+// (Final, Native, Public)
+
+void AShooterDoor::OnRep_DoorPieces()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterDoor.OnRep_DoorPieces");
+
+	AShooterDoor_OnRep_DoorPieces_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function ShooterGame.ShooterDoor.OnRep_DoorOpenState
 // (Final, Native, Public)
 
@@ -23993,14 +24157,14 @@ void AShooterGameState_LastManStanding::OnPreludeCountdownFinished()
 // Function ShooterGame.ShooterGameState_LastManStanding.OnMatchFinished
 // (Net, NetReliable, Native, Event, NetMulticast, Public)
 // Parameters:
-// class AShooterCharacter*       Victor                         (Parm, ZeroConstructor, IsPlainOldData)
+// TArray<class AShooterCharacter*> Winners                        (ConstParm, Parm, ZeroConstructor, ReferenceParm)
 
-void AShooterGameState_LastManStanding::OnMatchFinished(class AShooterCharacter* Victor)
+void AShooterGameState_LastManStanding::OnMatchFinished(TArray<class AShooterCharacter*> Winners)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterGameState_LastManStanding.OnMatchFinished");
 
 	AShooterGameState_LastManStanding_OnMatchFinished_Params params;
-	params.Victor = Victor;
+	params.Winners = Winners;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -26525,58 +26689,6 @@ void AShooterProjectile_GroundDetonate::OnBounce(const struct FHitResult& Impact
 	AShooterProjectile_GroundDetonate_OnBounce_Params params;
 	params.ImpactResult = ImpactResult;
 	params.ImpactVelocity = ImpactVelocity;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function ShooterGame.ShooterProjectile_QuickThrow.OnBounce
-// (Final, Native, Public, HasOutParms, HasDefaults)
-// Parameters:
-// struct FHitResult              Hit                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
-// struct FVector                 Velocity                       (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
-
-void AShooterProjectile_QuickThrow::OnBounce(const struct FHitResult& Hit, const struct FVector& Velocity)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterProjectile_QuickThrow.OnBounce");
-
-	AShooterProjectile_QuickThrow_OnBounce_Params params;
-	params.Hit = Hit;
-	params.Velocity = Velocity;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function ShooterGame.ShooterProjectile_QuickThrow.NetMulticastSetMesh
-// (Net, NetReliable, Native, Event, NetMulticast, Public)
-// Parameters:
-// class USkeletalMesh*           NewMesh                        (Parm, ZeroConstructor, IsPlainOldData)
-// class USkeletalMesh*           BarrelMesh                     (Parm, ZeroConstructor, IsPlainOldData)
-// class USkeletalMesh*           ScopeMesh                      (Parm, ZeroConstructor, IsPlainOldData)
-// class USkeletalMesh*           MagMesh                        (Parm, ZeroConstructor, IsPlainOldData)
-// class USkeletalMesh*           UnderbarrelMesh                (Parm, ZeroConstructor, IsPlainOldData)
-
-void AShooterProjectile_QuickThrow::NetMulticastSetMesh(class USkeletalMesh* NewMesh, class USkeletalMesh* BarrelMesh, class USkeletalMesh* ScopeMesh, class USkeletalMesh* MagMesh, class USkeletalMesh* UnderbarrelMesh)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterProjectile_QuickThrow.NetMulticastSetMesh");
-
-	AShooterProjectile_QuickThrow_NetMulticastSetMesh_Params params;
-	params.NewMesh = NewMesh;
-	params.BarrelMesh = BarrelMesh;
-	params.ScopeMesh = ScopeMesh;
-	params.MagMesh = MagMesh;
-	params.UnderbarrelMesh = UnderbarrelMesh;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -29351,6 +29463,40 @@ void UShooterHitReticleWidget::UpdateHitColorIntensity(float TimeSinceDamage)
 }
 
 
+// Function ShooterGame.ShooterHUD_LMS.ZoneWarning_6
+// (Event, Public, BlueprintEvent)
+
+void UShooterHUD_LMS::ZoneWarning_6()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterHUD_LMS.ZoneWarning_6");
+
+	UShooterHUD_LMS_ZoneWarning_6_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ShooterGame.ShooterHUD_LMS.ZoneWarning_31
+// (Event, Public, BlueprintEvent)
+
+void UShooterHUD_LMS::ZoneWarning_31()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterHUD_LMS.ZoneWarning_31");
+
+	UShooterHUD_LMS_ZoneWarning_31_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function ShooterGame.ShooterHUD_LMS.OnZoneCloseWarning
 // (Event, Public, HasOutParms, BlueprintEvent)
 // Parameters:
@@ -29610,6 +29756,27 @@ void UShooterInventoryEquippedItemInfo::OnInventoryUpdate()
 	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterInventoryEquippedItemInfo.OnInventoryUpdate");
 
 	UShooterInventoryEquippedItemInfo_OnInventoryUpdate_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ShooterGame.ShooterInventoryListEntry.UpdateKeyBinding
+// (Final, Native, Protected)
+// Parameters:
+// bool                           bUsingGamepad                  (Parm, ZeroConstructor, IsPlainOldData)
+
+void UShooterInventoryListEntry::UpdateKeyBinding(bool bUsingGamepad)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterInventoryListEntry.UpdateKeyBinding");
+
+	UShooterInventoryListEntry_UpdateKeyBinding_Params params;
+	params.bUsingGamepad = bUsingGamepad;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -30984,17 +31151,19 @@ void AShooterWeapon_SupplyLine::ClientNotifyUseFailed()
 }
 
 
-// Function ShooterGame.ShooterWeapon_Scanner.ClientPingEnemies
-// (Net, NetReliable, Native, Event, Protected, NetClient)
+// Function ShooterGame.ShooterWeapon_Scanner.NetMulticastPingEnemiesForTeam
+// (Net, NetReliable, Native, Event, NetMulticast, Protected)
 // Parameters:
 // TArray<struct FVector>         EnemyPositionsInRange          (ConstParm, Parm, ZeroConstructor, ReferenceParm)
+// class AShooterCharacter*       UsingCharacter                 (Parm, ZeroConstructor, IsPlainOldData)
 
-void AShooterWeapon_Scanner::ClientPingEnemies(TArray<struct FVector> EnemyPositionsInRange)
+void AShooterWeapon_Scanner::NetMulticastPingEnemiesForTeam(TArray<struct FVector> EnemyPositionsInRange, class AShooterCharacter* UsingCharacter)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterWeapon_Scanner.ClientPingEnemies");
+	static auto fn = UObject::FindObject<UFunction>("Function ShooterGame.ShooterWeapon_Scanner.NetMulticastPingEnemiesForTeam");
 
-	AShooterWeapon_Scanner_ClientPingEnemies_Params params;
+	AShooterWeapon_Scanner_NetMulticastPingEnemiesForTeam_Params params;
 	params.EnemyPositionsInRange = EnemyPositionsInRange;
+	params.UsingCharacter = UsingCharacter;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;

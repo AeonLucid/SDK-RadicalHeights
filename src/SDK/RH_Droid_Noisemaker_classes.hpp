@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,11 +15,11 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // DynamicClass Droid_Noisemaker.Droid_Noisemaker_C
-// 0x0008 (0x0558 - 0x0550)
+// 0x0008 (0x0570 - 0x0568)
 class ADroid_Noisemaker_C : public AShooterDroid_Noisemaker
 {
 public:
-	class UStaticMeshComponent*                        Cube;                                                     // 0x0550(0x0008) (BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UStaticMeshComponent*                        Cube;                                                     // 0x0568(0x0008) (BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{

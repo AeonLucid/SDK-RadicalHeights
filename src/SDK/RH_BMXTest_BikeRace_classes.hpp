@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,21 +15,21 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // DynamicClass BMXTest_BikeRace.BMXTest_BikeRace_C
-// 0x0040 (0x0690 - 0x0650)
+// 0x0040 (0x06C8 - 0x0688)
 class ABMXTest_BikeRace_C : public ABMXTest_C
 {
 public:
-	bool                                               PlayMusicWhenRidden;                                      // 0x0650(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0651(0x0007) MISSED OFFSET
-	class AShooterCharacter*                           K2Node_CustomEvent_Interactor;                            // 0x0658(0x0008) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	bool                                               CallFunc_IsValid_ReturnValue;                             // 0x0660(0x0001) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x7];                                       // 0x0661(0x0007) MISSED OFFSET
-	struct FScriptDelegate                             K2Node_CreateDelegate_OutputDelegate;                     // 0x0668(0x0014) (ZeroConstructor, Transient, InstancedReference, DuplicateTransient)
-	bool                                               CallFunc_HasAuthority_ReturnValue;                        // 0x0678(0x0001) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x7];                                       // 0x0679(0x0007) MISSED OFFSET
-	class AShooterCharacter*                           CallFunc_GetDriver_ReturnValue;                           // 0x0680(0x0008) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	bool                                               CallFunc_IsValid_ReturnValue2;                            // 0x0688(0x0001) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x7];                                       // 0x0689(0x0007) MISSED OFFSET
+	bool                                               PlayMusicWhenRidden;                                      // 0x0688(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0689(0x0007) MISSED OFFSET
+	class AShooterCharacter*                           K2Node_CustomEvent_Interactor;                            // 0x0690(0x0008) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	bool                                               CallFunc_IsValid_ReturnValue;                             // 0x0698(0x0001) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x7];                                       // 0x0699(0x0007) MISSED OFFSET
+	struct FScriptDelegate                             K2Node_CreateDelegate_OutputDelegate;                     // 0x06A0(0x0014) (ZeroConstructor, Transient, InstancedReference, DuplicateTransient)
+	bool                                               CallFunc_HasAuthority_ReturnValue;                        // 0x06B0(0x0001) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x7];                                       // 0x06B1(0x0007) MISSED OFFSET
+	class AShooterCharacter*                           CallFunc_GetDriver_ReturnValue;                           // 0x06B8(0x0008) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	bool                                               CallFunc_IsValid_ReturnValue2;                            // 0x06C0(0x0001) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x7];                                       // 0x06C1(0x0007) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{

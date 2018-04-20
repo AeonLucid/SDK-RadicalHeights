@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,7 +15,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // DynamicClass HUD_EQUIPSLOT_ENTRY_EQUIPPED.HUD_EQUIPSLOT_ENTRY_EQUIPPED_C
-// 0x0000 (0x0298 - 0x0298)
+// 0x0000 (0x02A0 - 0x02A0)
 class UHUD_EQUIPSLOT_ENTRY_EQUIPPED_C : public UShooterInventoryListEntryEquipped
 {
 public:

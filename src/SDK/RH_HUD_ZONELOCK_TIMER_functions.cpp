@@ -1,4 +1,4 @@
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,24 @@ namespace SDK
 //---------------------------------------------------------------------------
 //Functions
 //---------------------------------------------------------------------------
+
+// Function HUD_ZONELOCK_TIMER.HUD_ZONELOCK_TIMER_C.ZoneTimertoSeconds
+// (Native, Public, BlueprintCallable)
+
+void UHUD_ZONELOCK_TIMER_C::ZoneTimertoSeconds()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function HUD_ZONELOCK_TIMER.HUD_ZONELOCK_TIMER_C.ZoneTimertoSeconds");
+
+	UHUD_ZONELOCK_TIMER_C_ZoneTimertoSeconds_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
 
 // Function HUD_ZONELOCK_TIMER.HUD_ZONELOCK_TIMER_C.OnZoneTimerWarningStop
 // (Final, Native, Event, Public)

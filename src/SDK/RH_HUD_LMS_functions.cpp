@@ -1,4 +1,4 @@
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,42 @@ namespace SDK
 //---------------------------------------------------------------------------
 //Functions
 //---------------------------------------------------------------------------
+
+// Function HUD_LMS.HUD_LMS_C.ZoneWarning_6
+// (Final, Native, Event, Public)
+
+void UHUD_LMS_C::ZoneWarning_6()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function HUD_LMS.HUD_LMS_C.ZoneWarning_6");
+
+	UHUD_LMS_C_ZoneWarning_6_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function HUD_LMS.HUD_LMS_C.ZoneWarning_31
+// (Final, Native, Event, Public)
+
+void UHUD_LMS_C::ZoneWarning_31()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function HUD_LMS.HUD_LMS_C.ZoneWarning_31");
+
+	UHUD_LMS_C_ZoneWarning_31_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
 
 // Function HUD_LMS.HUD_LMS_C.Set CashDropText
 // (Net, NetReliable, Native, Event, NetMulticast, Public, BlueprintCallable)
@@ -216,16 +252,16 @@ void UHUD_LMS_C::OnBikeRaceEnd()
 }
 
 
-// Function HUD_LMS.HUD_LMS_C.ExecuteUbergraph_HUD_LMS_8
+// Function HUD_LMS.HUD_LMS_C.ExecuteUbergraph_HUD_LMS_9
 // (Final, Native, Public)
 // Parameters:
 // int                            bpp__EntryPoint__pf            (Parm, ZeroConstructor, IsPlainOldData)
 
-void UHUD_LMS_C::ExecuteUbergraph_HUD_LMS_8(int bpp__EntryPoint__pf)
+void UHUD_LMS_C::ExecuteUbergraph_HUD_LMS_9(int bpp__EntryPoint__pf)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function HUD_LMS.HUD_LMS_C.ExecuteUbergraph_HUD_LMS_8");
+	static auto fn = UObject::FindObject<UFunction>("Function HUD_LMS.HUD_LMS_C.ExecuteUbergraph_HUD_LMS_9");
 
-	UHUD_LMS_C_ExecuteUbergraph_HUD_LMS_8_Params params;
+	UHUD_LMS_C_ExecuteUbergraph_HUD_LMS_9_Params params;
 	params.bpp__EntryPoint__pf = bpp__EntryPoint__pf;
 
 	auto flags = fn->FunctionFlags;
@@ -237,37 +273,16 @@ void UHUD_LMS_C::ExecuteUbergraph_HUD_LMS_8(int bpp__EntryPoint__pf)
 }
 
 
-// Function HUD_LMS.HUD_LMS_C.ExecuteUbergraph_HUD_LMS_4
+// Function HUD_LMS.HUD_LMS_C.ExecuteUbergraph_HUD_LMS_6
 // (Final, Native, Public)
 // Parameters:
 // int                            bpp__EntryPoint__pf            (Parm, ZeroConstructor, IsPlainOldData)
 
-void UHUD_LMS_C::ExecuteUbergraph_HUD_LMS_4(int bpp__EntryPoint__pf)
+void UHUD_LMS_C::ExecuteUbergraph_HUD_LMS_6(int bpp__EntryPoint__pf)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function HUD_LMS.HUD_LMS_C.ExecuteUbergraph_HUD_LMS_4");
+	static auto fn = UObject::FindObject<UFunction>("Function HUD_LMS.HUD_LMS_C.ExecuteUbergraph_HUD_LMS_6");
 
-	UHUD_LMS_C_ExecuteUbergraph_HUD_LMS_4_Params params;
-	params.bpp__EntryPoint__pf = bpp__EntryPoint__pf;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function HUD_LMS.HUD_LMS_C.ExecuteUbergraph_HUD_LMS_3
-// (Final, Native, Public)
-// Parameters:
-// int                            bpp__EntryPoint__pf            (Parm, ZeroConstructor, IsPlainOldData)
-
-void UHUD_LMS_C::ExecuteUbergraph_HUD_LMS_3(int bpp__EntryPoint__pf)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function HUD_LMS.HUD_LMS_C.ExecuteUbergraph_HUD_LMS_3");
-
-	UHUD_LMS_C_ExecuteUbergraph_HUD_LMS_3_Params params;
+	UHUD_LMS_C_ExecuteUbergraph_HUD_LMS_6_Params params;
 	params.bpp__EntryPoint__pf = bpp__EntryPoint__pf;
 
 	auto flags = fn->FunctionFlags;

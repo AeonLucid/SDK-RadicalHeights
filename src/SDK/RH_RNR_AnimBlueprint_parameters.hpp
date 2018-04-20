@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -117,8 +117,8 @@ struct URnR_AnimBlueprint_C_FP_Graph_Params
 {
 };
 
-// Function RNR_AnimBlueprint.RnR_AnimBlueprint_C.ExecuteUbergraph_RnR_AnimBlueprint_33
-struct URnR_AnimBlueprint_C_ExecuteUbergraph_RnR_AnimBlueprint_33_Params
+// Function RNR_AnimBlueprint.RnR_AnimBlueprint_C.ExecuteUbergraph_RnR_AnimBlueprint_32
+struct URnR_AnimBlueprint_C_ExecuteUbergraph_RnR_AnimBlueprint_32_Params
 {
 	int                                                bpp__EntryPoint__pf;                                      // (Parm, ZeroConstructor, IsPlainOldData)
 };

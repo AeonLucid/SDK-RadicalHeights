@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11959,7 +11959,7 @@ public:
 	float                                              FOVScale;                                                 // 0x003C(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
 	float                                              DoubleClickTime;                                          // 0x0040(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
 	float                                              MasterVolume;                                             // 0x0044(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              DialogueVolume;                                           // 0x0048(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              AnnouncerVolume;                                          // 0x0048(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
 	float                                              EffectsVolume;                                            // 0x004C(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
 	float                                              MusicVolume;                                              // 0x0050(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
 	float                                              StingerMusicVolume;                                       // 0x0054(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)

@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -264,6 +264,14 @@ struct AShooterPhysicsVolume_Gravity_SetVolumeGravityType_Params
 struct AShooterGravitySeed_GetProjectileGravityScale_Params
 {
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ShooterGame.ShooterGameUtils.SpawnPhysicsPickup
+struct UShooterGameUtils_SpawnPhysicsPickup_Params
+{
+	class AActor*                                      SourceActor;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     InitialDirection;                                         // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+	class AActor*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function ShooterGame.ShooterGameUtils.SpawnBloodSplatterDecals
@@ -545,8 +553,8 @@ struct UShooterGameUtils_GetPlayerMovementCardinalDirection_Params
 	TEnumAsByte<ECardinalDirection>                    ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function ShooterGame.ShooterGameUtils.GetNumLiveCharactersOnTeam
-struct UShooterGameUtils_GetNumLiveCharactersOnTeam_Params
+// Function ShooterGame.ShooterGameUtils.GetNumLiveAndNotDownCharactersOnTeam
+struct UShooterGameUtils_GetNumLiveAndNotDownCharactersOnTeam_Params
 {
 	class UWorld*                                      World;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
 	int                                                Team;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
@@ -3091,18 +3099,6 @@ struct AShooterGameState_NetMultiForceWinningTeamOnEndMatch_Params
 	int                                                ForceWinningTeam;                                         // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function ShooterGame.ShooterGameState.NetMulticastKickInDoor
-struct AShooterGameState_NetMulticastKickInDoor_Params
-{
-	class AShooterDoor*                                DoorToKick;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function ShooterGame.ShooterGameState.NetMulticastDestroyComponent
-struct AShooterGameState_NetMulticastDestroyComponent_Params
-{
-	class UActorComponent*                             ToDestroy;                                                // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-};
-
 // Function ShooterGame.ShooterGameState.NetMulticastCharacterSpawned
 struct AShooterGameState_NetMulticastCharacterSpawned_Params
 {
@@ -3633,12 +3629,6 @@ struct AShooterCharacter_ServerRequestSpawnKickDecal_Params
 	bool                                               IsGolden;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function ShooterGame.ShooterCharacter.ServerRequestPickupAmmo
-struct AShooterCharacter_ServerRequestPickupAmmo_Params
-{
-	TArray<class AShooterPickup_Ammo*>                 AmmoPickups;                                              // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
-};
-
 // Function ShooterGame.ShooterCharacter.ServerRequestKickInDoor
 struct AShooterCharacter_ServerRequestKickInDoor_Params
 {
@@ -3656,6 +3646,12 @@ struct AShooterCharacter_ServerRequestInteract_Params
 struct AShooterCharacter_ServerRequestEquipWeapon_Params
 {
 	int                                                InventoryIndex;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ShooterGame.ShooterCharacter.ServerRequestAutoPickup
+struct AShooterCharacter_ServerRequestAutoPickup_Params
+{
+	TArray<class AShooterPickup*>                      AmmoPickups;                                              // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
 };
 
 // Function ShooterGame.ShooterCharacter.ServerRequestATM_Withdraw
@@ -3679,6 +3675,20 @@ struct AShooterCharacter_ServerReloadWeapon_Params
 // Function ShooterGame.ShooterCharacter.ServerRedirectProjectile
 struct AShooterCharacter_ServerRedirectProjectile_Params
 {
+};
+
+// Function ShooterGame.ShooterCharacter.ServerRecycleItemConfirmed
+struct AShooterCharacter_ServerRecycleItemConfirmed_Params
+{
+	class AShooterRecycleBin*                          BinToNotify;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	class AShooterWeapon*                              RecycledItem;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ShooterGame.ShooterCharacter.ServerPlaySound
+struct AShooterCharacter_ServerPlaySound_Params
+{
+	class UAkAudioEvent*                               Sound;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bSkipLocalCharacter;                                      // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ShooterGame.ShooterCharacter.ServerPlayloopedSound
@@ -4148,6 +4158,7 @@ struct AShooterCharacter_NetMultiCastPlaySoundInternal_Params
 	class UAkAudioEvent*                               Sound;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
 	TEnumAsByte<EShooterDialogueCharacterFunction>     InDialogue;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 	uint32_t                                           RandomSeed;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bSkipLocalCharacter;                                      // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ShooterGame.ShooterCharacter.NetMultiCastPlayLoopedSoundInternal
@@ -5079,6 +5090,14 @@ struct AShooterCharacter_ClientSetAccelDebuffTime_Params
 	float                                              AccelDebuffTime;                                          // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function ShooterGame.ShooterCharacter.ClientRecycleItem
+struct AShooterCharacter_ClientRecycleItem_Params
+{
+	class AShooterRecycleBin*                          BinToNotify;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	class AShooterWeapon*                              ItemToRecycle;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                ExpectedAmmoInClip;                                       // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function ShooterGame.ShooterCharacter.ClientPopupText
 struct AShooterCharacter_ClientPopupText_Params
 {
@@ -5129,6 +5148,11 @@ struct AShooterCharacter_ClientNotifyQuickUseItem_Params
 
 // Function ShooterGame.ShooterCharacter.ClientNotifyItemWasUsed
 struct AShooterCharacter_ClientNotifyItemWasUsed_Params
+{
+};
+
+// Function ShooterGame.ShooterCharacter.ClientInteractRequestFailed
+struct AShooterCharacter_ClientInteractRequestFailed_Params
 {
 };
 
@@ -5449,6 +5473,15 @@ struct AShooterWeapon_ServerRotateFirePattern_Params
 	bool                                               bNewFirePatternRotated;                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function ShooterGame.ShooterWeapon.ServerRequestSimpleHit
+struct AShooterWeapon_ServerRequestSimpleHit_Params
+{
+	class AActor*                                      HitActor;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       BoneName;                                                 // (ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+	struct FVector_NetQuantize                         Location;                                                 // (ConstParm, Parm)
+	uint16_t                                           ProjectileID;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function ShooterGame.ShooterWeapon.ServerRequestReload
 struct AShooterWeapon_ServerRequestReload_Params
 {
@@ -5525,6 +5558,13 @@ struct AShooterWeapon_NetMultiCastSimulateWeaponFire_Params
 {
 	bool                                               OnOff;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      FireModeNum;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ShooterGame.ShooterWeapon.NetMulticastSimulateProjectileFire
+struct AShooterWeapon_NetMulticastSimulateProjectileFire_Params
+{
+	struct FVector                                     StartLocation;                                            // (ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+	struct FVector                                     Direction;                                                // (ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData)
 };
 
 // Function ShooterGame.ShooterWeapon.MulticastInstantHits
@@ -5729,6 +5769,12 @@ struct AShooterWeapon_GetAmmoCursor_Params
 // Function ShooterGame.ShooterWeapon.ClientStartReload
 struct AShooterWeapon_ClientStartReload_Params
 {
+};
+
+// Function ShooterGame.ShooterWeapon.ClientProjectileHitRequestFailed
+struct AShooterWeapon_ClientProjectileHitRequestFailed_Params
+{
+	uint16_t                                           ProjectileID;                                             // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ShooterGame.ShooterWeapon.ClientDrawRejectedWeaponTrace
@@ -6722,6 +6768,11 @@ struct AShooterDoor_OnTweenCompleted_Params
 {
 };
 
+// Function ShooterGame.ShooterDoor.OnRep_DoorPieces
+struct AShooterDoor_OnRep_DoorPieces_Params
+{
+};
+
 // Function ShooterGame.ShooterDoor.OnRep_DoorOpenState
 struct AShooterDoor_OnRep_DoorOpenState_Params
 {
@@ -7033,7 +7084,7 @@ struct AShooterGameState_LastManStanding_OnPreludeCountdownFinished_Params
 // Function ShooterGame.ShooterGameState_LastManStanding.OnMatchFinished
 struct AShooterGameState_LastManStanding_OnMatchFinished_Params
 {
-	class AShooterCharacter*                           Victor;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	TArray<class AShooterCharacter*>                   Winners;                                                  // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
 };
 
 // Function ShooterGame.ShooterGameState_LastManStanding.OnBikeFaceFinished
@@ -7766,23 +7817,6 @@ struct AShooterProjectile_GroundDetonate_OnBounce_Params
 {
 	struct FHitResult                                  ImpactResult;                                             // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
 	struct FVector                                     ImpactVelocity;                                           // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
-};
-
-// Function ShooterGame.ShooterProjectile_QuickThrow.OnBounce
-struct AShooterProjectile_QuickThrow_OnBounce_Params
-{
-	struct FHitResult                                  Hit;                                                      // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
-	struct FVector                                     Velocity;                                                 // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
-};
-
-// Function ShooterGame.ShooterProjectile_QuickThrow.NetMulticastSetMesh
-struct AShooterProjectile_QuickThrow_NetMulticastSetMesh_Params
-{
-	class USkeletalMesh*                               NewMesh;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-	class USkeletalMesh*                               BarrelMesh;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	class USkeletalMesh*                               ScopeMesh;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	class USkeletalMesh*                               MagMesh;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-	class USkeletalMesh*                               UnderbarrelMesh;                                          // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ShooterGame.ShooterShieldedObject.SpawnShield
@@ -8590,6 +8624,16 @@ struct UShooterHitReticleWidget_UpdateHitColorIntensity_Params
 	float                                              TimeSinceDamage;                                          // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function ShooterGame.ShooterHUD_LMS.ZoneWarning_6
+struct UShooterHUD_LMS_ZoneWarning_6_Params
+{
+};
+
+// Function ShooterGame.ShooterHUD_LMS.ZoneWarning_31
+struct UShooterHUD_LMS_ZoneWarning_31_Params
+{
+};
+
 // Function ShooterGame.ShooterHUD_LMS.OnZoneCloseWarning
 struct UShooterHUD_LMS_OnZoneCloseWarning_Params
 {
@@ -8666,6 +8710,12 @@ struct UShooterInventoryButtons_UpdateKeyBinding_Params
 // Function ShooterGame.ShooterInventoryEquippedItemInfo.OnInventoryUpdate
 struct UShooterInventoryEquippedItemInfo_OnInventoryUpdate_Params
 {
+};
+
+// Function ShooterGame.ShooterInventoryListEntry.UpdateKeyBinding
+struct UShooterInventoryListEntry_UpdateKeyBinding_Params
+{
+	bool                                               bUsingGamepad;                                            // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ShooterGame.ShooterInventoryBaseList.OnInventoryUpdate
@@ -9067,10 +9117,11 @@ struct AShooterWeapon_SupplyLine_ClientNotifyUseFailed_Params
 {
 };
 
-// Function ShooterGame.ShooterWeapon_Scanner.ClientPingEnemies
-struct AShooterWeapon_Scanner_ClientPingEnemies_Params
+// Function ShooterGame.ShooterWeapon_Scanner.NetMulticastPingEnemiesForTeam
+struct AShooterWeapon_Scanner_NetMulticastPingEnemiesForTeam_Params
 {
 	TArray<struct FVector>                             EnemyPositionsInRange;                                    // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
+	class AShooterCharacter*                           UsingCharacter;                                           // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ShooterGame.ShooterWheeledVehicle.OnInteract

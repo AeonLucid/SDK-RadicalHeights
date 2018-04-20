@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -51,8 +51,8 @@ struct AEvent_Spin2Win_Crate_C_ExecuteUbergraph_Event_Spin2Win_Crate_4_Params
 	int                                                bpp__EntryPoint__pf;                                      // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function Event_Spin2Win_Crate.Event_Spin2Win_Crate_C.ExecuteUbergraph_Event_Spin2Win_Crate_1
-struct AEvent_Spin2Win_Crate_C_ExecuteUbergraph_Event_Spin2Win_Crate_1_Params
+// Function Event_Spin2Win_Crate.Event_Spin2Win_Crate_C.ExecuteUbergraph_Event_Spin2Win_Crate_2
+struct AEvent_Spin2Win_Crate_C_ExecuteUbergraph_Event_Spin2Win_Crate_2_Params
 {
 	int                                                bpp__EntryPoint__pf;                                      // (Parm, ZeroConstructor, IsPlainOldData)
 };

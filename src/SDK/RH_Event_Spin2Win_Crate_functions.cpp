@@ -1,4 +1,4 @@
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -144,16 +144,16 @@ void AEvent_Spin2Win_Crate_C::ExecuteUbergraph_Event_Spin2Win_Crate_4(int bpp__E
 }
 
 
-// Function Event_Spin2Win_Crate.Event_Spin2Win_Crate_C.ExecuteUbergraph_Event_Spin2Win_Crate_1
+// Function Event_Spin2Win_Crate.Event_Spin2Win_Crate_C.ExecuteUbergraph_Event_Spin2Win_Crate_2
 // (Final, Native, Public)
 // Parameters:
 // int                            bpp__EntryPoint__pf            (Parm, ZeroConstructor, IsPlainOldData)
 
-void AEvent_Spin2Win_Crate_C::ExecuteUbergraph_Event_Spin2Win_Crate_1(int bpp__EntryPoint__pf)
+void AEvent_Spin2Win_Crate_C::ExecuteUbergraph_Event_Spin2Win_Crate_2(int bpp__EntryPoint__pf)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function Event_Spin2Win_Crate.Event_Spin2Win_Crate_C.ExecuteUbergraph_Event_Spin2Win_Crate_1");
+	static auto fn = UObject::FindObject<UFunction>("Function Event_Spin2Win_Crate.Event_Spin2Win_Crate_C.ExecuteUbergraph_Event_Spin2Win_Crate_2");
 
-	AEvent_Spin2Win_Crate_C_ExecuteUbergraph_Event_Spin2Win_Crate_1_Params params;
+	AEvent_Spin2Win_Crate_C_ExecuteUbergraph_Event_Spin2Win_Crate_2_Params params;
 	params.bpp__EntryPoint__pf = bpp__EntryPoint__pf;
 
 	auto flags = fn->FunctionFlags;

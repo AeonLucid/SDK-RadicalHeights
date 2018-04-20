@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,7 +15,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // DynamicClass BMXTest_Spin2Win.BMXTest_Spin2Win_C
-// 0x0000 (0x0650 - 0x0650)
+// 0x0000 (0x0688 - 0x0688)
 class ABMXTest_Spin2Win_C : public ABMXTest_C
 {
 public:

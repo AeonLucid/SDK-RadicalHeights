@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,7 +15,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // Class FrontEnd.FrontEndSoundLibrary
-// 0x0418 (0x0440 - 0x0028)
+// 0x0438 (0x0460 - 0x0028)
 class UFrontEndSoundLibrary : public UDataAsset
 {
 public:
@@ -133,15 +133,19 @@ public:
 	class UAkAudioEvent*                               MenuCustomSelectSlideSide;                                // 0x03E0(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 	class UAkAudioEvent*                               CustomizationItemEquipped;                                // 0x03E8(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 	class UAkAudioEvent*                               CustomizationCharacterSelected;                           // 0x03F0(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UAkAudioEvent*                               UIRankPerformanceDefeat;                                  // 0x03F8(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UAkAudioEvent*                               UIRankPerformanceVictory;                                 // 0x0400(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UAkAudioEvent*                               UIRankPerformanceAccentHit;                               // 0x0408(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UAkAudioEvent*                               UIRankPerformanceRankDown;                                // 0x0410(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UAkAudioEvent*                               UIRankPerformanceRankUp;                                  // 0x0418(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UAkAudioEvent*                               UIRankPerformanceTally;                                   // 0x0420(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UAkAudioEvent*                               UIRankPerformanceWhooshInPre;                             // 0x0428(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UAkAudioEvent*                               UIRankMedalHit;                                           // 0x0430(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UAkAudioEvent*                               VOMainMenu;                                               // 0x0438(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UAkAudioEvent*                               MenuSelectItem;                                           // 0x03F8(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UAkAudioEvent*                               MenuBuyItem;                                              // 0x0400(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UAkAudioEvent*                               MenuEquipItem;                                            // 0x0408(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UAkAudioEvent*                               MenuNullItem;                                             // 0x0410(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UAkAudioEvent*                               UIRankPerformanceDefeat;                                  // 0x0418(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UAkAudioEvent*                               UIRankPerformanceVictory;                                 // 0x0420(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UAkAudioEvent*                               UIRankPerformanceAccentHit;                               // 0x0428(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UAkAudioEvent*                               UIRankPerformanceRankDown;                                // 0x0430(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UAkAudioEvent*                               UIRankPerformanceRankUp;                                  // 0x0438(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UAkAudioEvent*                               UIRankPerformanceTally;                                   // 0x0440(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UAkAudioEvent*                               UIRankPerformanceWhooshInPre;                             // 0x0448(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UAkAudioEvent*                               UIRankMedalHit;                                           // 0x0450(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UAkAudioEvent*                               VOMainMenu;                                               // 0x0458(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{

@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,15 +15,15 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // DynamicClass Weap_M12.Weap_M12_C
-// 0x0040 (0x0FD0 - 0x0F90)
+// 0x0040 (0x1000 - 0x0FC0)
 class AWeap_M12_C : public AShooterWeapon
 {
 public:
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0F90(0x0018) MISSED OFFSET
-	TArray<class USkeletalMeshComponent*>              CallFunc_GetComponentsByClass_ReturnValue;                // 0x0FA8(0x0010) (ExportObject, ZeroConstructor, Transient, DuplicateTransient)
-	bool                                               CallFunc_IsServer_ReturnValue;                            // 0x0FB8(0x0001) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x7];                                       // 0x0FB9(0x0007) MISSED OFFSET
-	TArray<int>                                        K2Node_MakeArray_Array;                                   // 0x0FC0(0x0010) (ZeroConstructor, Transient, DuplicateTransient)
+	unsigned char                                      UnknownData00[0x18];                                      // 0x0FC0(0x0018) MISSED OFFSET
+	TArray<class USkeletalMeshComponent*>              CallFunc_GetComponentsByClass_ReturnValue;                // 0x0FD8(0x0010) (ExportObject, ZeroConstructor, Transient, DuplicateTransient)
+	bool                                               CallFunc_IsServer_ReturnValue;                            // 0x0FE8(0x0001) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x7];                                       // 0x0FE9(0x0007) MISSED OFFSET
+	TArray<int>                                        K2Node_MakeArray_Array;                                   // 0x0FF0(0x0010) (ZeroConstructor, Transient, DuplicateTransient)
 
 	static UClass* StaticClass()
 	{

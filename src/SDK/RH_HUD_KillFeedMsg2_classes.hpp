@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -19,7 +19,7 @@ namespace SDK
 class UHUD_KillFeedMsg2_C : public UShooterKillFeedMessage
 {
 public:
-	class UImage*                                      BG_image;                                                 // 0x0380(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
+	class UImage*                                      BG_Image;                                                 // 0x0380(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
 	class UImage*                                      bgsomething;                                              // 0x0388(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
 	class UImage*                                      KillIcon;                                                 // 0x0390(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
 	class UHorizontalBox*                              MessageTextbox;                                           // 0x0398(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)

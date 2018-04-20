@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -161,7 +161,8 @@ enum class ETutorialTooltipCategory : uint8_t
 	ETutorialTooltipCategory__ZipLine = 8,
 	ETutorialTooltipCategory__HealthStation = 9,
 	ETutorialTooltipCategory__BikeRace = 10,
-	ETutorialTooltipCategory__ETutorialTooltipCategory_MAX = 11
+	ETutorialTooltipCategory__Smashable = 11,
+	ETutorialTooltipCategory__ETutorialTooltipCategory_MAX = 12
 };
 
 
@@ -2143,7 +2144,7 @@ struct FEnergyDamageScalar_Data
 };
 
 // ScriptStruct ShooterGame.AbilityAnimations
-// 0x00A0
+// 0x00A8
 struct FAbilityAnimations
 {
 	class UAnimMontage*                                Throw;                                                    // 0x0000(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
@@ -2157,15 +2158,16 @@ struct FAbilityAnimations
 	class UAnimMontage*                                CombatRoll_ForwardRight;                                  // 0x0040(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	class UAnimMontage*                                CombatRoll_ForwardLeft;                                   // 0x0048(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	class UAnimMontage*                                FlyingKick;                                               // 0x0050(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAnimMontage*                                DiveRoll_In;                                              // 0x0058(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAnimMontage*                                DiveRoll_Landing;                                         // 0x0060(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAnimMontage*                                GenericEAbilityAnim;                                      // 0x0068(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAnimMontage*                                ZipLineRide;                                              // 0x0070(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAnimMontage*                                DownButNotOut;                                            // 0x0078(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAnimMontage*                                RevivedFromDown;                                          // 0x0080(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAnimMontage*                                InteractLoop;                                             // 0x0088(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAnimMontage*                                GenericDance;                                             // 0x0090(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0098(0x0008) MISSED OFFSET
+	class UAnimMontage*                                DiveRoll_In_FromGround;                                   // 0x0058(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAnimMontage*                                DiveRoll_In_FromAir;                                      // 0x0060(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAnimMontage*                                DiveRoll_Landing;                                         // 0x0068(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAnimMontage*                                GenericEAbilityAnim;                                      // 0x0070(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAnimMontage*                                ZipLineRide;                                              // 0x0078(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAnimMontage*                                DownButNotOut;                                            // 0x0080(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAnimMontage*                                RevivedFromDown;                                          // 0x0088(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAnimMontage*                                InteractLoop;                                             // 0x0090(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAnimMontage*                                GenericDance;                                             // 0x0098(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x00A0(0x0008) MISSED OFFSET
 };
 
 // ScriptStruct ShooterGame.WeaponAnimations
@@ -2290,6 +2292,39 @@ struct FColorBlender
 struct FTeam
 {
 	TArray<class AShooterCharacter*>                   TeamPlayers;                                              // 0x0000(0x0010) (ZeroConstructor, Transient)
+};
+
+// ScriptStruct ShooterGame.SimpleActiveProjectile
+// 0x0070
+struct FSimpleActiveProjectile
+{
+	unsigned char                                      UnknownData00[0x38];                                      // 0x0000(0x0038) MISSED OFFSET
+	class UShooterSimpleProjectile*                    ProjectileData;                                           // 0x0038(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	class UParticleSystemComponent*                    ParticleSystem;                                           // 0x0040(0x0008) (ExportObject, ZeroConstructor, Transient, InstancedReference, IsPlainOldData)
+	class AShooterCharacter*                           ShooterCharacter;                                         // 0x0048(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	class AShooterPlayerState*                         ShooterState;                                             // 0x0050(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	class AShooterWeapon*                              Weapon;                                                   // 0x0058(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x10];                                      // 0x0060(0x0010) MISSED OFFSET
+};
+
+// ScriptStruct ShooterGame.ClientProjectileImpactRequest
+// 0x0030
+struct FClientProjectileImpactRequest
+{
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0000(0x0008) MISSED OFFSET
+	class AShooterWeapon*                              Weapon;                                                   // 0x0008(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	class AActor*                                      HitActor;                                                 // 0x0010(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x18];                                      // 0x0018(0x0018) MISSED OFFSET
+};
+
+// ScriptStruct ShooterGame.ShooterProjectileManager
+// 0x0030
+struct FShooterProjectileManager
+{
+	TArray<struct FSimpleActiveProjectile>             ActiveProjectiles;                                        // 0x0000(0x0010) (ZeroConstructor, Transient)
+	TArray<struct FClientProjectileImpactRequest>      ImpactRequestsFromClient;                                 // 0x0010(0x0010) (ZeroConstructor, Transient)
+	class UWorld*                                      World;                                                    // 0x0020(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
 };
 
 // ScriptStruct ShooterGame.ProjectilePool
@@ -2559,47 +2594,48 @@ struct FTakeHitInfo
 };
 
 // ScriptStruct ShooterGame.MeleeAttackConfig
-// 0x0018
+// 0x0020
 struct FMeleeAttackConfig
 {
 	float                                              AttackRange;                                              // 0x0000(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              SweepRadius;                                              // 0x0004(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              SkillShotRadius;                                          // 0x0008(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	bool                                               bIgnoreAimPitch;                                          // 0x000C(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x000D(0x0003) MISSED OFFSET
-	class UClass*                                      ImpactTemplate;                                           // 0x0010(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              DamageTime;                                               // 0x000C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               bIgnoreAimPitch;                                          // 0x0010(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0011(0x0007) MISSED OFFSET
+	class UClass*                                      ImpactTemplate;                                           // 0x0018(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 };
 
 // ScriptStruct ShooterGame.NinjaKickConfigData
-// 0x0098
+// 0x00A0
 struct FNinjaKickConfigData
 {
 	float                                              NinjaKickDamage;                                          // 0x0000(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
-	struct FMeleeAttackConfig                          NinjaKickMeleeConfig;                                     // 0x0008(0x0018) (Edit, DisableEditOnInstance)
-	float                                              NinjaKickImpulse;                                         // 0x0020(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	struct FVector                                     AdditiveImpulse;                                          // 0x0024(0x000C) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              NinjaKickTrackSpeedModifier;                              // 0x0030(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              NinjaKickTrackAirSpeedModifier;                           // 0x0034(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              DistanceToWallForKickoff;                                 // 0x0038(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              WallKickoffImpulse;                                       // 0x003C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              KickMaxAccelOverride;                                     // 0x0040(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              KickTimeUntilDamage;                                      // 0x0044(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              KickDamageDuration;                                       // 0x0048(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              DurationBeforeUnlockCam;                                  // 0x004C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              ViewTrackDegreesPerSecond;                                // 0x0050(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              StaminaCost;                                              // 0x0054(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              ZeroStaminaDamageMultiplier;                              // 0x0058(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              ActiveStaminaDamageMultiplier;                            // 0x005C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              ActiveStaminaAnimSpeedMultiplier;                         // 0x0060(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              DamageMitigation;                                         // 0x0064(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              Cooldown;                                                 // 0x0068(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x006C(0x0004) MISSED OFFSET
-	class UClass*                                      DamageType;                                               // 0x0070(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAkAudioEvent*                               FailSound;                                                // 0x0078(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAkAudioEvent*                               EnemyImpactSound;                                         // 0x0080(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAkAudioEvent*                               HitFoleySound;                                            // 0x0088(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UClass*                                      KickBuff;                                                 // 0x0090(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FMeleeAttackConfig                          NinjaKickMeleeConfig;                                     // 0x0008(0x0020) (Edit, DisableEditOnInstance)
+	float                                              NinjaKickImpulse;                                         // 0x0028(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FVector                                     AdditiveImpulse;                                          // 0x002C(0x000C) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              NinjaKickTrackSpeedModifier;                              // 0x0038(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              NinjaKickTrackAirSpeedModifier;                           // 0x003C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              DistanceToWallForKickoff;                                 // 0x0040(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              WallKickoffImpulse;                                       // 0x0044(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              KickMaxAccelOverride;                                     // 0x0048(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              KickTimeUntilDamage;                                      // 0x004C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              KickDamageDuration;                                       // 0x0050(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              DurationBeforeUnlockCam;                                  // 0x0054(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              ViewTrackDegreesPerSecond;                                // 0x0058(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              StaminaCost;                                              // 0x005C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              ZeroStaminaDamageMultiplier;                              // 0x0060(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              ActiveStaminaDamageMultiplier;                            // 0x0064(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              ActiveStaminaAnimSpeedMultiplier;                         // 0x0068(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              DamageMitigation;                                         // 0x006C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              Cooldown;                                                 // 0x0070(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x0074(0x0004) MISSED OFFSET
+	class UClass*                                      DamageType;                                               // 0x0078(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAkAudioEvent*                               FailSound;                                                // 0x0080(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAkAudioEvent*                               EnemyImpactSound;                                         // 0x0088(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAkAudioEvent*                               HitFoleySound;                                            // 0x0090(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UClass*                                      KickBuff;                                                 // 0x0098(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 };
 
 // ScriptStruct ShooterGame.PopupTextData
@@ -2996,10 +3032,10 @@ struct FShooterAbilityData_CombatRoll
 	float                                              DisplacementDurationFromAir;                              // 0x0018(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              DisplacementDurationFromGround;                           // 0x001C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              MinTimeForLanding;                                        // 0x0020(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0024(0x0004) MISSED OFFSET
+	float                                              FromAirAnimationThreshold;                                // 0x0024(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	class UAkAudioEvent*                               SlideStartSound;                                          // 0x0028(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              RollCollisionScale;                                       // 0x0030(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x0034(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0034(0x0004) MISSED OFFSET
 	class UCurveFloat*                                 RollDisplacementCurve;                                    // 0x0038(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 };
 
@@ -3046,7 +3082,7 @@ struct FShooterAbilityData_DevourGravity
 };
 
 // ScriptStruct ShooterGame.ShooterAbilityData_Throw
-// 0x0040
+// 0x0060
 struct FShooterAbilityData_Throw
 {
 	class UClass*                                      ProjectileClass;                                          // 0x0000(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
@@ -3057,10 +3093,12 @@ struct FShooterAbilityData_Throw
 	bool                                               bCanCook;                                                 // 0x0018(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData01[0x3];                                       // 0x0019(0x0003) MISSED OFFSET
 	struct FVector                                     ThrowRelativePositionOverride;                            // 0x001C(0x000C) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UParticleSystem*                             PredictiveArcPointFX;                                     // 0x0028(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UParticleSystem*                             PredictiveArcImpactFX;                                    // 0x0030(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	int                                                MaxNumArcSegments;                                        // 0x0038(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x4];                                       // 0x003C(0x0004) MISSED OFFSET
+	class UStaticMesh*                                 PredictiveArcMesh;                                        // 0x0028(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FLinearColor                                PredictiveArcImpactColor;                                 // 0x0030(0x0010) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FVector                                     PredictiveArcPointScale;                                  // 0x0040(0x000C) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FVector                                     PredictiveArcImpactScale;                                 // 0x004C(0x000C) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	int                                                MaxNumArcSegments;                                        // 0x0058(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
 };
 
 // ScriptStruct ShooterGame.ShooterProjectilePredictionData
@@ -3566,13 +3604,12 @@ struct FWeaponData
 	int                                                UIStatLevels[0x5];                                        // 0x0344(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	struct FText                                       WeaponDescription;                                        // 0x0358(0x0018) (Edit, DisableEditOnInstance)
 	class UClass*                                      AssociatedPickupClass;                                    // 0x0370(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	struct FMeleeAttackConfig                          QuickMeleeConfig;                                         // 0x0378(0x0018) (Edit, DisableEditOnInstance)
-	bool                                               bThrown;                                                  // 0x0390(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	bool                                               bCanThrow;                                                // 0x0391(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	bool                                               bUsePitchOverride;                                        // 0x0392(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData11[0x1];                                       // 0x0393(0x0001) MISSED OFFSET
-	float                                              ThrowPitchOverride;                                       // 0x0394(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData12[0x8];                                       // 0x0398(0x0008) MISSED OFFSET
+	struct FMeleeAttackConfig                          QuickMeleeConfig;                                         // 0x0378(0x0020) (Edit, DisableEditOnInstance)
+	bool                                               bThrown;                                                  // 0x0398(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               bCanThrow;                                                // 0x0399(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               bUsePitchOverride;                                        // 0x039A(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData11[0x1];                                       // 0x039B(0x0001) MISSED OFFSET
+	float                                              ThrowPitchOverride;                                       // 0x039C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 };
 
 // ScriptStruct ShooterGame.ProceduralSway
@@ -3665,61 +3702,64 @@ struct FInstantWeaponData
 };
 
 // ScriptStruct ShooterGame.WeaponFireMode
-// 0x00E8
+// 0x00F8
 struct FWeaponFireMode
 {
-	class UParticleSystem*                             MuzzleFX;                                                 // 0x0000(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UParticleSystem*                             StartFireMuzzleFX;                                        // 0x0008(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UParticleSystem*                             TracerFX;                                                 // 0x0010(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UParticleSystem*                             TracerFX3P;                                               // 0x0018(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UParticleSystem*                             TracerFX3PTeam;                                           // 0x0020(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UParticleSystem*                             MuzzleFXThirdPersonOverride;                              // 0x0028(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UClass*                                      FireCameraShake;                                          // 0x0030(0x0008) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	class UForceFeedbackEffect*                        FireForceFeedback;                                        // 0x0038(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAkAudioEvent*                               FireSound;                                                // 0x0040(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAkAudioEvent*                               FireLoopSound;                                            // 0x0048(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAkAudioEvent*                               FireFinishSound;                                          // 0x0050(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAkAudioEvent*                               LowAmmoSound;                                             // 0x0058(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAkAudioEvent*                               LowAmmoThresholdSound;                                    // 0x0060(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAkAudioEvent*                               OutOfAmmoSound;                                           // 0x0068(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAkAudioEvent*                               BulletWhizzSound;                                         // 0x0070(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	int                                                LowAmmoAmount;                                            // 0x0078(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	int                                                LowAmmoThresholdAmount;                                   // 0x007C(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	int                                                AmmoConsumed;                                             // 0x0080(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	float                                              AutoReloadDelay;                                          // 0x0084(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      bStartFireSoundPlaysOnce : 1;                             // 0x0088(0x0001) (Edit, Config, DisableEditOnInstance)
-	unsigned char                                      bLoopedMuzzleFX : 1;                                      // 0x0088(0x0001) (Edit, Config, DisableEditOnInstance)
-	unsigned char                                      bLoopedFireAnim : 1;                                      // 0x0088(0x0001) (Edit, Config, DisableEditOnInstance)
-	unsigned char                                      bUseDetonate : 1;                                         // 0x0088(0x0001) (Edit, Config, DisableEditOnInstance)
-	unsigned char                                      bUseProjectileRedirection : 1;                            // 0x0088(0x0001) (Edit, Config, DisableEditOnInstance)
-	unsigned char                                      bUseAngleBetweenShoots : 1;                               // 0x0088(0x0001) (Edit, Config, DisableEditOnInstance)
-	unsigned char                                      OverrideFullAuto : 1;                                     // 0x0088(0x0001) (Edit, Config, DisableEditOnInstance)
-	unsigned char                                      bAllowingHomingProjectiles : 1;                           // 0x0088(0x0001) (Edit, Config, DisableEditOnInstance)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0089(0x0003) MISSED OFFSET
-	float                                              ProjPitchRedirAngle;                                      // 0x008C(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	float                                              ProjYawRedirAngle;                                        // 0x0090(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	float                                              HitTraceRadius;                                           // 0x0094(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	TArray<float>                                      AnglesBetweenShoots;                                      // 0x0098(0x0010) (Edit, ZeroConstructor, Config)
-	float                                              AdditivePitchAngle;                                       // 0x00A8(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	float                                              BulletBySoundRadius;                                      // 0x00AC(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	float                                              BulletWhizzCDTime;                                        // 0x00B0(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	float                                              AbilityResourceUsage;                                     // 0x00B4(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	int                                                NumberofBurstFireShots;                                   // 0x00B8(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	float                                              TimeBetweenBurstShots;                                    // 0x00BC(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	float                                              FOVOnShoot;                                               // 0x00C0(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	float                                              FOVHoldTime;                                              // 0x00C4(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	float                                              FOVBlendOut;                                              // 0x00C8(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	bool                                               bAllowInputBuffering;                                     // 0x00CC(0x0001) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x00CD(0x0003) MISSED OFFSET
-	unsigned char                                      bUseAllAmmoOnFire : 1;                                    // 0x00D0(0x0001) (Edit, Config, DisableEditOnInstance)
-	unsigned char                                      bStopShakeOnStopFire : 1;                                 // 0x00D0(0x0001) (Edit, Config, DisableEditOnInstance)
-	unsigned char                                      UnknownData02[0x3];                                       // 0x00D1(0x0003) MISSED OFFSET
-	bool                                               bFireOnPress;                                             // 0x00D4(0x0001) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x3];                                       // 0x00D5(0x0003) MISSED OFFSET
-	float                                              DelayBeforeOtherModeCanFire;                              // 0x00D8(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	float                                              FireLoopDelay;                                            // 0x00DC(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	bool                                               bUseRefire;                                               // 0x00E0(0x0001) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData04[0x7];                                       // 0x00E1(0x0007) MISSED OFFSET
+	class UClass*                                      SimpleProjectileClass;                                    // 0x0000(0x0008) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	float                                              ProjectileSpeed;                                          // 0x0008(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x000C(0x0004) MISSED OFFSET
+	class UParticleSystem*                             MuzzleFX;                                                 // 0x0010(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UParticleSystem*                             StartFireMuzzleFX;                                        // 0x0018(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UParticleSystem*                             TracerFX;                                                 // 0x0020(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UParticleSystem*                             TracerFX3P;                                               // 0x0028(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UParticleSystem*                             TracerFX3PTeam;                                           // 0x0030(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UParticleSystem*                             MuzzleFXThirdPersonOverride;                              // 0x0038(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UClass*                                      FireCameraShake;                                          // 0x0040(0x0008) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	class UForceFeedbackEffect*                        FireForceFeedback;                                        // 0x0048(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAkAudioEvent*                               FireSound;                                                // 0x0050(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAkAudioEvent*                               FireLoopSound;                                            // 0x0058(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAkAudioEvent*                               FireFinishSound;                                          // 0x0060(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAkAudioEvent*                               LowAmmoSound;                                             // 0x0068(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAkAudioEvent*                               LowAmmoThresholdSound;                                    // 0x0070(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAkAudioEvent*                               OutOfAmmoSound;                                           // 0x0078(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAkAudioEvent*                               BulletWhizzSound;                                         // 0x0080(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	int                                                LowAmmoAmount;                                            // 0x0088(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	int                                                LowAmmoThresholdAmount;                                   // 0x008C(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	int                                                AmmoConsumed;                                             // 0x0090(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	float                                              AutoReloadDelay;                                          // 0x0094(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      bStartFireSoundPlaysOnce : 1;                             // 0x0098(0x0001) (Edit, Config, DisableEditOnInstance)
+	unsigned char                                      bLoopedMuzzleFX : 1;                                      // 0x0098(0x0001) (Edit, Config, DisableEditOnInstance)
+	unsigned char                                      bLoopedFireAnim : 1;                                      // 0x0098(0x0001) (Edit, Config, DisableEditOnInstance)
+	unsigned char                                      bUseDetonate : 1;                                         // 0x0098(0x0001) (Edit, Config, DisableEditOnInstance)
+	unsigned char                                      bUseProjectileRedirection : 1;                            // 0x0098(0x0001) (Edit, Config, DisableEditOnInstance)
+	unsigned char                                      bUseAngleBetweenShoots : 1;                               // 0x0098(0x0001) (Edit, Config, DisableEditOnInstance)
+	unsigned char                                      OverrideFullAuto : 1;                                     // 0x0098(0x0001) (Edit, Config, DisableEditOnInstance)
+	unsigned char                                      bAllowingHomingProjectiles : 1;                           // 0x0098(0x0001) (Edit, Config, DisableEditOnInstance)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0099(0x0003) MISSED OFFSET
+	float                                              ProjPitchRedirAngle;                                      // 0x009C(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	float                                              ProjYawRedirAngle;                                        // 0x00A0(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	float                                              HitTraceRadius;                                           // 0x00A4(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	TArray<float>                                      AnglesBetweenShoots;                                      // 0x00A8(0x0010) (Edit, ZeroConstructor, Config)
+	float                                              AdditivePitchAngle;                                       // 0x00B8(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	float                                              BulletBySoundRadius;                                      // 0x00BC(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	float                                              BulletWhizzCDTime;                                        // 0x00C0(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	float                                              AbilityResourceUsage;                                     // 0x00C4(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	int                                                NumberofBurstFireShots;                                   // 0x00C8(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	float                                              TimeBetweenBurstShots;                                    // 0x00CC(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	float                                              FOVOnShoot;                                               // 0x00D0(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	float                                              FOVHoldTime;                                              // 0x00D4(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	float                                              FOVBlendOut;                                              // 0x00D8(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	bool                                               bAllowInputBuffering;                                     // 0x00DC(0x0001) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x3];                                       // 0x00DD(0x0003) MISSED OFFSET
+	unsigned char                                      bUseAllAmmoOnFire : 1;                                    // 0x00E0(0x0001) (Edit, Config, DisableEditOnInstance)
+	unsigned char                                      bStopShakeOnStopFire : 1;                                 // 0x00E0(0x0001) (Edit, Config, DisableEditOnInstance)
+	unsigned char                                      UnknownData03[0x3];                                       // 0x00E1(0x0003) MISSED OFFSET
+	bool                                               bFireOnPress;                                             // 0x00E4(0x0001) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData04[0x3];                                       // 0x00E5(0x0003) MISSED OFFSET
+	float                                              DelayBeforeOtherModeCanFire;                              // 0x00E8(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	float                                              FireLoopDelay;                                            // 0x00EC(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	bool                                               bUseRefire;                                               // 0x00F0(0x0001) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData05[0x7];                                       // 0x00F1(0x0007) MISSED OFFSET
 };
 
 // ScriptStruct ShooterGame.ActiveFireMode
@@ -3801,7 +3841,7 @@ struct FWeaponAttachmentConfig
 };
 
 // ScriptStruct ShooterGame.ShooterAbilityData_ShockwavePunch
-// 0x00B0
+// 0x00B8
 struct FShooterAbilityData_ShockwavePunch
 {
 	float                                              DashSpeed;                                                // 0x0000(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
@@ -3823,22 +3863,22 @@ struct FShooterAbilityData_ShockwavePunch
 	float                                              MaxTravelDistance;                                        // 0x004C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	float                                              TimeUntilDamage;                                          // 0x0050(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData02[0x4];                                       // 0x0054(0x0004) MISSED OFFSET
-	struct FMeleeAttackConfig                          PunchMeleeConfig;                                         // 0x0058(0x0018) (Edit, DisableEditOnInstance)
-	float                                              BottomHalf;                                               // 0x0070(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              TopHalf;                                                  // 0x0074(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              Height;                                                   // 0x0078(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              DamageImpulse;                                            // 0x007C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              PunchImpulseToTarget;                                     // 0x0080(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              BillBoardSize;                                            // 0x0084(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              PunchImpulseRange;                                        // 0x0088(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x4];                                       // 0x008C(0x0004) MISSED OFFSET
-	class UClass*                                      PrimaryAttack_DamageType;                                 // 0x0090(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              BoostImpulseStrength;                                     // 0x0098(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              KnockbackRadius;                                          // 0x009C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              KnockbackImpulse;                                         // 0x00A0(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              KnockbackDamage;                                          // 0x00A4(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              RunJuiceDecay;                                            // 0x00A8(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              RunJuiceGrowth;                                           // 0x00AC(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FMeleeAttackConfig                          PunchMeleeConfig;                                         // 0x0058(0x0020) (Edit, DisableEditOnInstance)
+	float                                              BottomHalf;                                               // 0x0078(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              TopHalf;                                                  // 0x007C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              Height;                                                   // 0x0080(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              DamageImpulse;                                            // 0x0084(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              PunchImpulseToTarget;                                     // 0x0088(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              BillBoardSize;                                            // 0x008C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              PunchImpulseRange;                                        // 0x0090(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x4];                                       // 0x0094(0x0004) MISSED OFFSET
+	class UClass*                                      PrimaryAttack_DamageType;                                 // 0x0098(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              BoostImpulseStrength;                                     // 0x00A0(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              KnockbackRadius;                                          // 0x00A4(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              KnockbackImpulse;                                         // 0x00A8(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              KnockbackDamage;                                          // 0x00AC(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              RunJuiceDecay;                                            // 0x00B0(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              RunJuiceGrowth;                                           // 0x00B4(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 };
 
 // ScriptStruct ShooterGame.ShooterAbilityData_SkyGrab
@@ -5177,13 +5217,13 @@ struct FCrowdAudio
 };
 
 // ScriptStruct ShooterGame.Spin2WinEventData
-// 0x000C
+// 0x0020
 struct FSpin2WinEventData
 {
 	float                                              TriggerTime;                                              // 0x0000(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	int                                                NumEventsToSpawn;                                         // 0x0004(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	bool                                               bEventTriggered;                                          // 0x0008(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0009(0x0003) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x17];                                      // 0x0009(0x0017) MISSED OFFSET
 };
 
 // ScriptStruct ShooterGame.StartingPattern
@@ -5205,7 +5245,7 @@ struct FBikeRaceEventData
 };
 
 // ScriptStruct ShooterGame.LMSConfig
-// 0x0188
+// 0x0190
 struct FLMSConfig
 {
 	float                                              TimeScale;                                                // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
@@ -5214,45 +5254,47 @@ struct FLMSConfig
 	float                                              FinalShowDownTargetHeight;                                // 0x000C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              FinalShowDownShrinkSpeed;                                 // 0x0010(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              FinalShowDownAnnounceDelay;                               // 0x0014(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              TimeInDangerZoneBeforeTerminator;                         // 0x0018(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              StartupPhaseDurationMinutes;                              // 0x001C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              AmbientDamage_1;                                          // 0x0020(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              AmbientDamage_2;                                          // 0x0024(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              AmbientDamage_3;                                          // 0x0028(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              AmbientDamage_4;                                          // 0x002C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              AmbientDamage_5;                                          // 0x0030(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              FinalShowdownMinSize;                                     // 0x0034(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              FinalShowdownCountdownDuration;                           // 0x0038(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              FinalShowdownCountdownDurationPerSafeZone;                // 0x003C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	int                                                CashDropZonesThreshold;                                   // 0x0040(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	int                                                NumLeftAliveForFinalShowdown_Max;                         // 0x0044(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	int                                                NumLeftAliveForFinalShowdown_Min;                         // 0x0048(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	int                                                SafeZoneThresholdForFinalShowdown;                        // 0x004C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	int                                                MaxCosmetics;                                             // 0x0050(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	int                                                NumCashDrops;                                             // 0x0054(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	TArray<struct FZoneCloseData>                      ZoneCloseTimes;                                           // 0x0058(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance)
-	class UClass*                                      FinalShowdownTemplate;                                    // 0x0068(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UClass*                                      CashDropTemplate;                                         // 0x0070(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	struct FAnnouncerAudio                             AnnouncerAudioPackage;                                    // 0x0078(0x0068) (Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance)
-	struct FCrowdAudio                                 CrowdAudioPackage;                                        // 0x00E0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	TArray<struct FSpin2WinEventData>                  Spin2WinEvents;                                           // 0x00F0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance)
-	class UClass*                                      Spin2WinCrateTemplate;                                    // 0x0100(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	TArray<struct FStartingPattern>                    StartingPatterns;                                         // 0x0108(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance)
-	float                                              Spin2WinSpawnHeight;                                      // 0x0118(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x011C(0x0004) MISSED OFFSET
-	TArray<struct FBikeRaceEventData>                  BikeRaceEvents;                                           // 0x0120(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance)
-	class UClass*                                      BikeRaceEventTemplate;                                    // 0x0130(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UClass*                                      DangerZoneDamageTypeClass;                                // 0x0138(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UClass*                                      FinalShowdownGridLocationTemplate;                        // 0x0140(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAkAudioEvent*                               CutToBlackSound;                                          // 0x0148(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              CutToBlackDuration;                                       // 0x0150(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x0154(0x0004) MISSED OFFSET
-	class UAkAudioEvent*                               PreludeCountdownSound;                                    // 0x0158(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UAkAudioEvent*                               CutFromBlackSound;                                        // 0x0160(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UClass*                                      DeathTaxCashPickup;                                       // 0x0168(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              EndOfMatchOnDeathDelayTime;                               // 0x0170(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x4];                                       // 0x0174(0x0004) MISSED OFFSET
-	TArray<int>                                        MajorGameShowEventDropRates;                              // 0x0178(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance)
+	float                                              FinalShowdownMaxWarningTime;                              // 0x0018(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              TimeInDangerZoneBeforeTerminator;                         // 0x001C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              StartupPhaseDurationMinutes;                              // 0x0020(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              AmbientDamage_1;                                          // 0x0024(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              AmbientDamage_2;                                          // 0x0028(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              AmbientDamage_3;                                          // 0x002C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              AmbientDamage_4;                                          // 0x0030(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              AmbientDamage_5;                                          // 0x0034(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              FinalShowdownMinSize;                                     // 0x0038(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              FinalShowdownCountdownDuration;                           // 0x003C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              FinalShowdownCountdownDurationPerSafeZone;                // 0x0040(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	int                                                CashDropZonesThreshold;                                   // 0x0044(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	int                                                NumLeftAliveForFinalShowdown_Max;                         // 0x0048(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	int                                                NumLeftAliveForFinalShowdown_Min;                         // 0x004C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	int                                                SafeZoneThresholdForFinalShowdown;                        // 0x0050(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	int                                                MaxCosmetics;                                             // 0x0054(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	int                                                NumCashDrops;                                             // 0x0058(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
+	TArray<struct FZoneCloseData>                      ZoneCloseTimes;                                           // 0x0060(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance)
+	class UClass*                                      FinalShowdownTemplate;                                    // 0x0070(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UClass*                                      CashDropTemplate;                                         // 0x0078(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FAnnouncerAudio                             AnnouncerAudioPackage;                                    // 0x0080(0x0068) (Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance)
+	struct FCrowdAudio                                 CrowdAudioPackage;                                        // 0x00E8(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	TArray<struct FSpin2WinEventData>                  Spin2WinEvents;                                           // 0x00F8(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance)
+	class UClass*                                      Spin2WinCrateTemplate;                                    // 0x0108(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	TArray<struct FStartingPattern>                    StartingPatterns;                                         // 0x0110(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance)
+	float                                              Spin2WinSpawnHeight;                                      // 0x0120(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x0124(0x0004) MISSED OFFSET
+	TArray<struct FBikeRaceEventData>                  BikeRaceEvents;                                           // 0x0128(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance)
+	class UClass*                                      BikeRaceEventTemplate;                                    // 0x0138(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UClass*                                      DangerZoneDamageTypeClass;                                // 0x0140(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UClass*                                      FinalShowdownGridLocationTemplate;                        // 0x0148(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAkAudioEvent*                               CutToBlackSound;                                          // 0x0150(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              CutToBlackDuration;                                       // 0x0158(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x4];                                       // 0x015C(0x0004) MISSED OFFSET
+	class UAkAudioEvent*                               PreludeCountdownSound;                                    // 0x0160(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAkAudioEvent*                               CutFromBlackSound;                                        // 0x0168(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UClass*                                      DeathTaxCashPickup;                                       // 0x0170(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              EndOfMatchOnDeathDelayTime;                               // 0x0178(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x4];                                       // 0x017C(0x0004) MISSED OFFSET
+	TArray<int>                                        MajorGameShowEventDropRates;                              // 0x0180(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance)
 };
 
 // ScriptStruct ShooterGame.MapZone
@@ -5391,13 +5433,11 @@ struct FReplicatedSpectatedMovement
 };
 
 // ScriptStruct ShooterGame.ReplicatedSpectatedTargetInfo
-// 0x0014 (0x0038 - 0x0024)
+// 0x000C (0x0030 - 0x0024)
 struct FReplicatedSpectatedTargetInfo : public FReplicatedSpectatedMovement
 {
 	unsigned char                                      UnknownData00[0x4];                                       // 0x0024(0x0004) MISSED OFFSET
 	class AShooterPlayerState*                         TargetChasePlayer;                                        // 0x0028(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      TargetAimState;                                           // 0x0030(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
 };
 
 // ScriptStruct ShooterGame.LootItem
@@ -5971,13 +6011,17 @@ struct FShooterCarryObjectData
 };
 
 // ScriptStruct ShooterGame.SeatSocketAndExitOffsets
-// 0x0020
+// 0x0038
 struct FSeatSocketAndExitOffsets
 {
 	struct FName                                       SeatSocket;                                               // 0x0000(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	TEnumAsByte<EVehicleSeatState>                     SeatType;                                                 // 0x0008(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x7];                                       // 0x0009(0x0007) MISSED OFFSET
 	TArray<struct FVector>                             SeatExitOffsets;                                          // 0x0010(0x0010) (Edit, ZeroConstructor, DisableEditOnInstance)
+	struct FVector                                     PlayerKnockoffOffset;                                     // 0x0020(0x000C) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              PlayerKnockoffRadius;                                     // 0x002C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               bEnablePlayerKnockoffCheck;                               // 0x0030(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
 };
 
 // ScriptStruct ShooterGame.SimpleWheelData
@@ -6331,7 +6375,7 @@ struct FSpawnProjectileData
 };
 
 // ScriptStruct ShooterGame.MeleeData
-// 0x0080
+// 0x0088
 struct FMeleeData
 {
 	class AShooterCharacter*                           Attacker;                                                 // 0x0000(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
@@ -6350,7 +6394,7 @@ struct FMeleeData
 	bool                                               bImpulseAlongAim;                                         // 0x0058(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
 	unsigned char                                      UnknownData02[0x7];                                       // 0x0059(0x0007) MISSED OFFSET
 	class UClass*                                      DamageType;                                               // 0x0060(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	struct FMeleeAttackConfig                          MeleeAttackConfig;                                        // 0x0068(0x0018) (Transient)
+	struct FMeleeAttackConfig                          MeleeAttackConfig;                                        // 0x0068(0x0020) (Transient)
 };
 
 // ScriptStruct ShooterGame.ShooterLoadAbilityInfo
@@ -6585,6 +6629,15 @@ struct FSpectatedRotationEvent
 struct FSpectatedMovementEvent
 {
 	unsigned char                                      UnknownData00[0x28];                                      // 0x0000(0x0028) MISSED OFFSET
+};
+
+// ScriptStruct ShooterGame.RecycleRequestData
+// 0x0014
+struct FRecycleRequestData
+{
+	TWeakObjectPtr<class AShooterCharacter>            User;                                                     // 0x0000(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	TWeakObjectPtr<class AShooterWeapon>               ItemToRecycle;                                            // 0x0008(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0010(0x0004) MISSED OFFSET
 };
 
 // ScriptStruct ShooterGame.ScoreLog

@@ -1,6 +1,6 @@
 # SDK-RadicalHeights
 
-This SDK is for [Radical Heights](http://store.steampowered.com/app/809960/Radical_Heights/) **version ALPHA-0-200211**.  
+This SDK is for [Radical Heights](http://store.steampowered.com/app/809960/Radical_Heights/) **version ALPHA-1-201356**.  
 Dump was created using [KN4CK3R's SDK generator](https://github.com/KN4CK3R/UnrealEngineSDKGenerator).
 
 ## Offsets
@@ -9,8 +9,8 @@ Dump was created using [KN4CK3R's SDK generator](https://github.com/KN4CK3R/Unre
 
 | What         | Offset         |
 |--------------|----------------|
-| GNames       | 0x03C2DE58     |
-| GObjects     | 0x03C36710     |
+| GNames       | 0x03C18058     |
+| GObjects     | 0x03C20910     |
 
 ## Patterns
 

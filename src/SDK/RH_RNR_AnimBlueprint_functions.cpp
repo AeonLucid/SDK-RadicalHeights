@@ -1,4 +1,4 @@
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -382,16 +382,16 @@ void URnR_AnimBlueprint_C::FP_Graph()
 }
 
 
-// Function RNR_AnimBlueprint.RnR_AnimBlueprint_C.ExecuteUbergraph_RnR_AnimBlueprint_33
+// Function RNR_AnimBlueprint.RnR_AnimBlueprint_C.ExecuteUbergraph_RnR_AnimBlueprint_32
 // (Final, Native, Public)
 // Parameters:
 // int                            bpp__EntryPoint__pf            (Parm, ZeroConstructor, IsPlainOldData)
 
-void URnR_AnimBlueprint_C::ExecuteUbergraph_RnR_AnimBlueprint_33(int bpp__EntryPoint__pf)
+void URnR_AnimBlueprint_C::ExecuteUbergraph_RnR_AnimBlueprint_32(int bpp__EntryPoint__pf)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function RNR_AnimBlueprint.RnR_AnimBlueprint_C.ExecuteUbergraph_RnR_AnimBlueprint_33");
+	static auto fn = UObject::FindObject<UFunction>("Function RNR_AnimBlueprint.RnR_AnimBlueprint_C.ExecuteUbergraph_RnR_AnimBlueprint_32");
 
-	URnR_AnimBlueprint_C_ExecuteUbergraph_RnR_AnimBlueprint_33_Params params;
+	URnR_AnimBlueprint_C_ExecuteUbergraph_RnR_AnimBlueprint_32_Params params;
 	params.bpp__EntryPoint__pf = bpp__EntryPoint__pf;
 
 	auto flags = fn->FunctionFlags;

@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -81,15 +81,15 @@ public:
 	class AShooterSimpleVehicle*                       K2Node_DynamicCast_AsShooter_Simple_Vehicle;              // 0x0EF0(0x0008) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
 	bool                                               K2Node_DynamicCast_bSuccess;                              // 0x0EF8(0x0001) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
 	unsigned char                                      UnknownData07[0x3];                                       // 0x0EF9(0x0003) MISSED OFFSET
-	float                                              CallFunc_Array_Get_Item;                                  // 0x0EFC(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	int                                                CallFunc_Array_Length_ReturnValue;                        // 0x0F00(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	float                                              CallFunc_Multiply_FloatFloat_ReturnValue;                 // 0x0F04(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	bool                                               CallFunc_Greater_IntInt_ReturnValue;                      // 0x0F08(0x0001) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	unsigned char                                      UnknownData08[0x3];                                       // 0x0F09(0x0003) MISSED OFFSET
-	struct FRotator                                    CallFunc_MakeRotator_ReturnValue2;                        // 0x0F0C(0x000C) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	bool                                               CallFunc_Greater_IntInt_ReturnValue2;                     // 0x0F18(0x0001) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	unsigned char                                      UnknownData09[0x3];                                       // 0x0F19(0x0003) MISSED OFFSET
-	float                                              CallFunc_Array_Get_Item2;                                 // 0x0F1C(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	int                                                CallFunc_Array_Length_ReturnValue;                        // 0x0EFC(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	float                                              CallFunc_Array_Get_Item;                                  // 0x0F00(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	bool                                               CallFunc_Greater_IntInt_ReturnValue;                      // 0x0F04(0x0001) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	unsigned char                                      UnknownData08[0x3];                                       // 0x0F05(0x0003) MISSED OFFSET
+	struct FRotator                                    CallFunc_MakeRotator_ReturnValue2;                        // 0x0F08(0x000C) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	bool                                               CallFunc_Greater_IntInt_ReturnValue2;                     // 0x0F14(0x0001) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	unsigned char                                      UnknownData09[0x3];                                       // 0x0F15(0x0003) MISSED OFFSET
+	float                                              CallFunc_Array_Get_Item2;                                 // 0x0F18(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	float                                              CallFunc_Multiply_FloatFloat_ReturnValue;                 // 0x0F1C(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
 	struct FRotator                                    CallFunc_MakeRotator_ReturnValue3;                        // 0x0F20(0x000C) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
 	unsigned char                                      UnknownData10[0x4];                                       // 0x0F2C(0x0004) MISSED OFFSET
 

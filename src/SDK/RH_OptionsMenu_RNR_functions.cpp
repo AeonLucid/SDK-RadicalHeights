@@ -1,4 +1,4 @@
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,31 +11,6 @@ namespace SDK
 //---------------------------------------------------------------------------
 //Functions
 //---------------------------------------------------------------------------
-
-// Function OptionsMenu_RNR.OptionsMenu_RNR_C.SetMapAndModeNames
-// (Final, Native, Event, Public, HasOutParms)
-// Parameters:
-// struct FText                   bpp__ModeName__pf              (ConstParm, Parm, OutParm, ReferenceParm)
-// struct FText                   bpp__MapName__pf               (ConstParm, Parm, OutParm, ReferenceParm)
-// struct FText                   bpp__ModeDescription__pf       (ConstParm, Parm, OutParm, ReferenceParm)
-
-void UOptionsMenu_RNR_C::SetMapAndModeNames(const struct FText& bpp__ModeName__pf, const struct FText& bpp__MapName__pf, const struct FText& bpp__ModeDescription__pf)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function OptionsMenu_RNR.OptionsMenu_RNR_C.SetMapAndModeNames");
-
-	UOptionsMenu_RNR_C_SetMapAndModeNames_Params params;
-	params.bpp__ModeName__pf = bpp__ModeName__pf;
-	params.bpp__MapName__pf = bpp__MapName__pf;
-	params.bpp__ModeDescription__pf = bpp__ModeDescription__pf;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
 
 // Function OptionsMenu_RNR.OptionsMenu_RNR_C.ResetPauseMenu
 // (Native, Public, BlueprintCallable)

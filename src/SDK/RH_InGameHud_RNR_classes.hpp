@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -28,7 +28,7 @@ public:
 	class UHUD_Toast_C*                                HUDToastWidget;                                           // 0x02C0(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
 	class UInvalidationBox*                            InvalidationBoxOptimization;                              // 0x02C8(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
 	class ULetterBoxWidget*                            LetterBoxWidget_1;                                        // 0x02D0(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
-	class URNR_ATM_Menu_C*                             RNR_ATM_Menu;                                             // 0x02D8(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
+	class URNR_ATM_Menu_C*                             RNR_ATM_Menu_213;                                         // 0x02D8(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
 	class UShooterCachedWidget*                        ToastCacheWidget;                                         // 0x02E0(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
 	class UHUD_TUT_Tooltips_C*                         ToolTip;                                                  // 0x02E8(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
 	class UShooterCachedWidget*                        ToolTipCached;                                            // 0x02F0(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)

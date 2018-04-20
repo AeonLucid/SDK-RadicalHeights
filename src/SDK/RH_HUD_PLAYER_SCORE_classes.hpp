@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -26,10 +26,10 @@ public:
 	class UImage*                                      MIC_MUTED;                                                // 0x0298(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
 	class UImage*                                      MIC_QUIET;                                                // 0x02A0(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
 	class UImage*                                      MIC_SPEAKING;                                             // 0x02A8(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
-	class UImage*                                      Stance_Crouch;                                            // 0x02B0(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
+	class UImage*                                      STANCE_CROUCH;                                            // 0x02B0(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
 	class UImage*                                      STANCE_DEAD;                                              // 0x02B8(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
 	class UImage*                                      STANCE_DRIVE;                                             // 0x02C0(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
-	class UImage*                                      Stance_Prone;                                             // 0x02C8(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
+	class UImage*                                      STANCE_PRONE;                                             // 0x02C8(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
 	class UImage*                                      STANCE_UPRIGHT;                                           // 0x02D0(0x0008) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
 
 	static UClass* StaticClass()

@@ -1,6 +1,6 @@
 #pragma once
 
-// Radical Heights (ALPHA-0-200211) SDK
+// Radical Heights (ALPHA-1-201356) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -63,22 +63,21 @@ public:
 	bool                                               CallFunc_K2_AttachToComponent_ReturnValue2;               // 0x05D8(0x0001) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
 	unsigned char                                      UnknownData05[0x3];                                       // 0x05D9(0x0003) MISSED OFFSET
 	struct FVector                                     CallFunc_K2_GetComponentLocation_ReturnValue3;            // 0x05DC(0x000C) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	float                                              CallFunc_BreakVector_X3;                                  // 0x05E8(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	float                                              CallFunc_BreakVector_Y3;                                  // 0x05EC(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	float                                              CallFunc_BreakVector_Z3;                                  // 0x05F0(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	struct FVector                                     CallFunc_MakeVector_ReturnValue2;                         // 0x05F4(0x000C) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	struct FVector                                     CallFunc_K2_GetComponentLocation_ReturnValue4;            // 0x0600(0x000C) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	unsigned char                                      UnknownData06[0x4];                                       // 0x060C(0x0004) MISSED OFFSET
-	struct FHitResult                                  CallFunc_K2_SetWorldLocation_SweepHitResult2;             // 0x0610(0x0088) (Transient, DuplicateTransient, IsPlainOldData)
-	float                                              CallFunc_BreakVector_X4;                                  // 0x0698(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	float                                              CallFunc_BreakVector_Y4;                                  // 0x069C(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	float                                              CallFunc_BreakVector_Z4;                                  // 0x06A0(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	bool                                               CallFunc_HasAuthority_ReturnValue4;                       // 0x06A4(0x0001) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	unsigned char                                      UnknownData07[0x3];                                       // 0x06A5(0x0003) MISSED OFFSET
-	float                                              CallFunc_Add_FloatFloat_ReturnValue2;                     // 0x06A8(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	float                                              CallFunc_Subtract_FloatFloat_ReturnValue;                 // 0x06AC(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	struct FVector                                     CallFunc_MakeVector_ReturnValue3;                         // 0x06B0(0x000C) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
-	unsigned char                                      UnknownData08[0x4];                                       // 0x06BC(0x0004) MISSED OFFSET
+	struct FVector                                     CallFunc_K2_GetComponentLocation_ReturnValue4;            // 0x05E8(0x000C) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	float                                              CallFunc_BreakVector_X3;                                  // 0x05F4(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	float                                              CallFunc_BreakVector_Y3;                                  // 0x05F8(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	float                                              CallFunc_BreakVector_Z3;                                  // 0x05FC(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	float                                              CallFunc_BreakVector_X4;                                  // 0x0600(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	float                                              CallFunc_BreakVector_Y4;                                  // 0x0604(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	float                                              CallFunc_BreakVector_Z4;                                  // 0x0608(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	struct FVector                                     CallFunc_MakeVector_ReturnValue2;                         // 0x060C(0x000C) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	float                                              CallFunc_Add_FloatFloat_ReturnValue2;                     // 0x0618(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	unsigned char                                      UnknownData06[0x4];                                       // 0x061C(0x0004) MISSED OFFSET
+	struct FHitResult                                  CallFunc_K2_SetWorldLocation_SweepHitResult2;             // 0x0620(0x0088) (Transient, DuplicateTransient, IsPlainOldData)
+	float                                              CallFunc_Subtract_FloatFloat_ReturnValue;                 // 0x06A8(0x0004) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	struct FVector                                     CallFunc_MakeVector_ReturnValue3;                         // 0x06AC(0x000C) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	bool                                               CallFunc_HasAuthority_ReturnValue4;                       // 0x06B8(0x0001) (ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData)
+	unsigned char                                      UnknownData07[0x7];                                       // 0x06B9(0x0007) MISSED OFFSET
 	struct FHitResult                                  CallFunc_K2_SetWorldLocation_SweepHitResult3;             // 0x06C0(0x0088) (Transient, DuplicateTransient, IsPlainOldData)
 
 	static UClass* StaticClass()
@@ -95,7 +94,7 @@ public:
 	void OnLandSpin2WinCrateEvent();
 	void ExecuteUbergraph_Event_Spin2Win_Crate_5(int bpp__EntryPoint__pf);
 	void ExecuteUbergraph_Event_Spin2Win_Crate_4(int bpp__EntryPoint__pf);
-	void ExecuteUbergraph_Event_Spin2Win_Crate_1(int bpp__EntryPoint__pf);
+	void ExecuteUbergraph_Event_Spin2Win_Crate_2(int bpp__EntryPoint__pf);
 	void BndEvt__DamageBox_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature(class UPrimitiveComponent* bpp__OverlappedComponent__pf, class AActor* bpp__OtherActor__pf, class UPrimitiveComponent* bpp__OtherComp__pf, int bpp__OtherBodyIndex__pf, bool bpp__bFromSweep__pf, const struct FHitResult& bpp__SweepResult__pf);
 };
 
